@@ -28,6 +28,7 @@ type HeaderProps = {
 
 const Header = ({ locale }: HeaderProps) => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const dict = getDictionary(locale);
 
@@ -37,6 +38,13 @@ const Header = ({ locale }: HeaderProps) => {
     { href: getLocalizedPath(locale, "/about"), label: dict.nav.about },
     { href: getLocalizedPath(locale, "/contact"), label: dict.nav.contact },
   ];
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -49,6 +57,8 @@ const Header = ({ locale }: HeaderProps) => {
     setOpen(false);
   }, [pathname]);
 
+  const light = scrolled && !open;
+
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
     <div
       className={`flex items-center gap-2 text-[0.72rem] tracking-[0.14em] uppercase ${className}`}
@@ -56,7 +66,9 @@ const Header = ({ locale }: HeaderProps) => {
     >
       {locales.map((code, index) => (
         <span key={code} className="flex items-center gap-2">
-          {index > 0 && <span className="text-white/40">|</span>}
+          {index > 0 && (
+            <span className={light ? "text-black/30" : "text-white/40"}>|</span>
+          )}
           <Link
             href={switchLocalePath(pathname, code)}
             className={`transition-opacity duration-300 hover:opacity-70 ${
@@ -76,7 +88,11 @@ const Header = ({ locale }: HeaderProps) => {
   return (
     <>
       <motion.header
-        className="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-[rgba(18,18,18,0.35)] text-white backdrop-blur-md"
+        className={`fixed top-0 right-0 left-0 z-50 border-b border-solid transition-[background-color,color,border-color,box-shadow] duration-300 ${
+          light
+            ? "border-black/10 bg-white text-black shadow-sm"
+            : "border-white bg-transparent text-white"
+        }`}
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: easeOut, delay: 0.15 }}
@@ -100,18 +116,26 @@ const Header = ({ locale }: HeaderProps) => {
                 className="group relative shrink-0 whitespace-nowrap text-[15px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:text-[16px]"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+                <span
+                  className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full ${
+                    light ? "bg-black" : "bg-white"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
 
-          <div className="body-text hidden items-center justify-self-end border-l border-white/35 px-4 lg:flex xl:px-5">
+          <div
+            className={`body-text hidden items-center justify-self-end border-l px-4 lg:flex xl:px-5 ${
+              light ? "border-black/20" : "border-white/35"
+            }`}
+          >
             <LanguageSwitcher />
           </div>
 
           <button
             type="button"
-            className="relative z-[60] flex size-10 justify-self-end items-center justify-center lg:hidden"
+            className="relative z-[60] flex size-10 items-center justify-center justify-self-end lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
@@ -119,7 +143,7 @@ const Header = ({ locale }: HeaderProps) => {
           >
             <span className="relative block h-3.5 w-5">
               <motion.span
-                className="absolute left-0 block h-px w-full bg-white"
+                className={`absolute left-0 block h-px w-full ${light ? "bg-black" : "bg-white"}`}
                 animate={
                   open
                     ? { top: "50%", y: "-50%", rotate: 45 }
@@ -128,12 +152,12 @@ const Header = ({ locale }: HeaderProps) => {
                 transition={{ duration: 0.25 }}
               />
               <motion.span
-                className="absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-white"
+                className={`absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 ${light ? "bg-black" : "bg-white"}`}
                 animate={{ opacity: open ? 0 : 1 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span
-                className="absolute left-0 block h-px w-full bg-white"
+                className={`absolute left-0 block h-px w-full ${light ? "bg-black" : "bg-white"}`}
                 animate={
                   open
                     ? { top: "50%", y: "-50%", rotate: -45 }
