@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   getDictionary,
@@ -11,29 +11,7 @@ import {
   type Locale,
 } from "@/lib/i18n";
 
-const PHONE = "+995 555 12 34 56";
-const PHONE_HREF = "tel:+995555123456";
-
 const easeOut = [0.22, 1, 0.36, 1] as const;
-
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-      />
-    </svg>
-  );
-}
 
 function switchLocalePath(pathname: string, nextLocale: Locale) {
   const segments = pathname.split("/");
@@ -60,6 +38,17 @@ const Header = ({ locale }: HeaderProps) => {
     { href: getLocalizedPath(locale, "/contact"), label: dict.nav.contact },
   ];
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
     <div
       className={`flex items-center gap-2 text-[0.72rem] tracking-[0.14em] uppercase ${className}`}
@@ -75,6 +64,7 @@ const Header = ({ locale }: HeaderProps) => {
             }`}
             hrefLang={code}
             lang={code}
+            onClick={() => setOpen(false)}
           >
             {dict.language[code]}
           </Link>
@@ -84,23 +74,23 @@ const Header = ({ locale }: HeaderProps) => {
   );
 
   return (
-    <motion.header
-      className="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-[rgba(18,18,18,0.35)] text-white backdrop-blur-md"
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: easeOut, delay: 0.15 }}
-    >
-      <div className="mx-auto flex h-[4.25rem] max-w-[1400px] items-center justify-between gap-6 px-5 md:px-8">
-        <Link
-          href={getLocalizedPath(locale)}
-          className="main-text shrink-0 text-[0.95rem] font-semibold tracking-[0.28em] uppercase transition-opacity duration-300 hover:opacity-70"
-        >
-          Event
-        </Link>
+    <>
+      <motion.header
+        className="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-[rgba(18,18,18,0.35)] text-white backdrop-blur-md"
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: easeOut, delay: 0.15 }}
+      >
+        <div className="mx-auto grid h-[4.25rem] max-w-[1400px] grid-cols-[1fr_auto] items-center gap-4 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+          <Link
+            href={getLocalizedPath(locale)}
+            className="main-text justify-self-start text-[0.95rem] font-semibold tracking-[0.28em] uppercase transition-opacity duration-300 hover:opacity-70"
+          >
+            Event
+          </Link>
 
-        <div className="body-text hidden items-center gap-8 lg:flex xl:gap-10">
           <nav
-            className="flex items-center gap-8 xl:gap-10"
+            className="body-text hidden items-center justify-center gap-8 lg:flex xl:gap-10"
             aria-label={dict.nav.mainAria}
           >
             {navLinks.map((link) => (
@@ -115,89 +105,91 @@ const Header = ({ locale }: HeaderProps) => {
             ))}
           </nav>
 
-          <div className="flex items-stretch">
-           
+          <div className="body-text hidden items-center justify-self-end border-l border-white/35 px-4 lg:flex xl:px-5">
+            <LanguageSwitcher />
           </div>
+
+          <button
+            type="button"
+            className="relative z-[60] flex size-10 justify-self-end items-center justify-center lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <span className="relative block h-3.5 w-5">
+              <motion.span
+                className="absolute left-0 block h-px w-full bg-white"
+                animate={
+                  open
+                    ? { top: "50%", y: "-50%", rotate: 45 }
+                    : { top: "0%", y: "0%", rotate: 0 }
+                }
+                transition={{ duration: 0.25 }}
+              />
+              <motion.span
+                className="absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-white"
+                animate={{ opacity: open ? 0 : 1 }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.span
+                className="absolute left-0 block h-px w-full bg-white"
+                animate={
+                  open
+                    ? { top: "50%", y: "-50%", rotate: -45 }
+                    : { top: "100%", y: "-100%", rotate: 0 }
+                }
+                transition={{ duration: 0.25 }}
+              />
+            </span>
+          </button>
         </div>
-            <div className="flex items-center border-l border-white/35 px-4 xl:px-5">
-              <LanguageSwitcher />
-            </div>
+      </motion.header>
 
-        <button
-          type="button"
-          className="flex size-10 shrink-0 items-center justify-center lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <span className="relative block h-3.5 w-5">
-            <motion.span
-              className="absolute left-0 block h-px w-full bg-white"
-              animate={
-                open
-                  ? { top: "50%", y: "-50%", rotate: 45 }
-                  : { top: "0%", y: "0%", rotate: 0 }
-              }
-              transition={{ duration: 0.25 }}
-            />
-            <motion.span
-              className="absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-white"
-              animate={{ opacity: open ? 0 : 1 }}
-              transition={{ duration: 0.2 }}
-            />
-            <motion.span
-              className="absolute left-0 block h-px w-full bg-white"
-              animate={
-                open
-                  ? { top: "50%", y: "-50%", rotate: -45 }
-                  : { top: "100%", y: "-100%", rotate: 0 }
-              }
-              transition={{ duration: 0.25 }}
-            />
-          </span>
-        </button>
-      </div>
-
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {open && (
           <motion.div
             id="mobile-nav"
-            className="overflow-hidden border-t border-white/10 lg:hidden"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: easeOut }}
+            className="fixed inset-0 z-40 flex flex-col bg-[rgba(12,12,12,0.97)] text-white lg:hidden"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: easeOut }}
           >
             <nav
-              className="body-text flex flex-col gap-1 px-5 py-4"
+              className="body-text flex h-full flex-col justify-center gap-2 px-8 pt-24 pb-10"
               aria-label={dict.nav.mobileAria}
             >
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * index, duration: 0.3 }}
+                  transition={{ delay: 0.08 + index * 0.06, duration: 0.35 }}
                 >
                   <Link
                     href={link.href}
-                    className="block py-3 text-[0.85rem] tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70"
+                    className="block py-3 text-2xl tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
-             
-              <div className="border-t border-white/15 py-3.5">
-                <LanguageSwitcher />
-              </div>
+
+              <motion.div
+                className="mt-8 border-t border-white/15 pt-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35, duration: 0.3 }}
+              >
+                <LanguageSwitcher className="text-sm" />
+              </motion.div>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 };
 
