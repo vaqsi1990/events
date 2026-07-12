@@ -61,7 +61,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
     <div
-      className={`flex items-center gap-2 text-[0.72rem] tracking-[0.14em] uppercase ${className}`}
+      className={`flex items-center gap-2 text-[16px] tracking-[0.14em] uppercase ${className}`}
       aria-label={dict.language.switchAria}
     >
       {locales.map((code, index) => (
