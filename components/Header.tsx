@@ -97,44 +97,46 @@ const Header = ({ locale }: HeaderProps) => {
           Event
         </Link>
 
-        <nav
-          className="body-text hidden items-center gap-9 lg:flex"
-          aria-label={dict.nav.mainAria}
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative text-[16px] font-medium tracking-[0.18em] uppercase transition-opacity duration-300 hover:opacity-70 md:text-[18px]"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
-        </nav>
+        <div className="body-text hidden items-center gap-8 lg:flex xl:gap-10">
+          <nav
+            className="flex items-center gap-8 xl:gap-10"
+            aria-label={dict.nav.mainAria}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group relative shrink-0 whitespace-nowrap text-[15px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:text-[16px]"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </nav>
 
-        <div className="body-text hidden items-stretch lg:flex">
-          <a
-            href={PHONE_HREF}
-            className="flex items-center gap-2.5 border-l border-white/35 px-5 text-[16px] font-medium tracking-[0.14em] transition-opacity duration-300 hover:opacity-70 md:text-[18px]"
-          >
-            <PhoneIcon className="size-3.5 shrink-0 opacity-90" />
-            <span>{PHONE}</span>
-          </a>
-          <Link
-            href={getLocalizedPath(locale, "/contact")}
-            className="flex items-center border-l border-white/35 px-5 text-[16px] font-medium tracking-[0.18em] uppercase transition-opacity duration-300 hover:opacity-70 md:text-[18px]"
-          >
-            {dict.nav.contact}
-          </Link>
-          <div className="flex items-center border-l border-white/35 px-5">
-            <LanguageSwitcher />
+          <div className="flex items-stretch">
+            <a
+              href={PHONE_HREF}
+              className="flex items-center gap-2 border-l border-white/35 px-4 text-[14px] font-medium tracking-[0.08em] transition-opacity duration-300 hover:opacity-70 xl:gap-2.5 xl:px-5 xl:text-[15px]"
+            >
+              <PhoneIcon className="size-3.5 shrink-0 opacity-90" />
+              <span className="whitespace-nowrap">{PHONE}</span>
+            </a>
+            <Link
+              href={getLocalizedPath(locale, "/contact")}
+              className="flex items-center whitespace-nowrap border-l border-white/35 px-4 text-[14px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:px-5 xl:text-[15px]"
+            >
+              {dict.nav.contact}
+            </Link>
+            <div className="flex items-center border-l border-white/35 px-4 xl:px-5">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
 
         <button
           type="button"
-          className="flex size-10 items-center justify-center lg:hidden"
+          className="flex size-10 shrink-0 items-center justify-center lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}

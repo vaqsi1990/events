@@ -35,7 +35,7 @@ export default function Hero({ locale, dict }: HeroProps) {
   return (
     <section className="relative isolate min-h-[100svh] w-full overflow-hidden text-white">
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 z-0"
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
         transition={{ duration: 18, ease: "easeOut" }}
@@ -50,12 +50,9 @@ export default function Hero({ locale, dict }: HeroProps) {
         />
       </motion.div>
 
-      <motion.div
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.55)_0%,rgba(10,10,10,0.35)_40%,rgba(10,10,10,0.72)_100%)]"
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(10,10,10,0.55)_0%,rgba(10,10,10,0.35)_40%,rgba(10,10,10,0.72)_100%)]"
         aria-hidden="true"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
       />
 
       <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 md:px-10 lg:px-16">
