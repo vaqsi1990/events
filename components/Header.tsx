@@ -57,6 +57,7 @@ const Header = ({ locale }: HeaderProps) => {
     { href: getLocalizedPath(locale, "/services"), label: dict.nav.services },
     { href: getLocalizedPath(locale, "/works"), label: dict.nav.works },
     { href: getLocalizedPath(locale, "/about"), label: dict.nav.about },
+    { href: getLocalizedPath(locale, "/contact"), label: dict.nav.contact },
   ];
 
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
@@ -115,24 +116,12 @@ const Header = ({ locale }: HeaderProps) => {
           </nav>
 
           <div className="flex items-stretch">
-            <a
-              href={PHONE_HREF}
-              className="flex items-center gap-2 border-l border-white/35 px-4 text-[14px] font-medium tracking-[0.08em] transition-opacity duration-300 hover:opacity-70 xl:gap-2.5 xl:px-5 xl:text-[15px]"
-            >
-              <PhoneIcon className="size-3.5 shrink-0 opacity-90" />
-              <span className="whitespace-nowrap">{PHONE}</span>
-            </a>
-            <Link
-              href={getLocalizedPath(locale, "/contact")}
-              className="flex items-center whitespace-nowrap border-l border-white/35 px-4 text-[14px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:px-5 xl:text-[15px]"
-            >
-              {dict.nav.contact}
-            </Link>
+           
+          </div>
+        </div>
             <div className="flex items-center border-l border-white/35 px-4 xl:px-5">
               <LanguageSwitcher />
             </div>
-          </div>
-        </div>
 
         <button
           type="button"
@@ -200,20 +189,7 @@ const Header = ({ locale }: HeaderProps) => {
                   </Link>
                 </motion.div>
               ))}
-              <a
-                href={PHONE_HREF}
-                className="flex items-center gap-2.5 border-t border-white/15 py-3.5 text-[0.85rem] tracking-[0.08em]"
-              >
-                <PhoneIcon className="size-3.5" />
-                {PHONE}
-              </a>
-              <Link
-                href={getLocalizedPath(locale, "/contact")}
-                className="border-t border-white/15 py-3.5 text-[0.85rem] tracking-[0.12em] uppercase"
-                onClick={() => setOpen(false)}
-              >
-                {dict.nav.contact}
-              </Link>
+             
               <div className="border-t border-white/15 py-3.5">
                 <LanguageSwitcher />
               </div>
