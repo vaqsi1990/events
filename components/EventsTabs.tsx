@@ -49,10 +49,10 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => selectTab(item.id)}
-                className={`body-text relative cursor-pointer pb-3 text-left text-[14px] whitespace-nowrap transition-colors duration-300 sm:text-[15px] md:pb-3.5 md:text-[16px] ${
+                className={`body-text relative cursor-pointer pb-3 text-left text-[16px] whitespace-nowrap transition-colors duration-300  md:pb-3.5  ${
                   isActive
                     ? "font-semibold text-neutral-900"
-                    : "font-normal text-neutral-400 hover:text-neutral-700"
+                    : "font-normal text-neutral-600 hover:text-neutral-700"
                 }`}
               >
                 {item.label}
