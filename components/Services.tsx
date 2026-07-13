@@ -73,7 +73,6 @@ export default function Services({ locale, dict }: ServicesProps) {
       <div className="mt-10 grid gap-6 px-5 md:mt-12 md:gap-8 md:px-8 lg:mt-16 lg:grid-cols-[minmax(200px,260px)_minmax(0,1fr)] lg:items-center lg:gap-0 lg:pr-0 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] xl:grid-cols-[minmax(220px,280px)_minmax(0,1fr)]">
         <motion.ul
           className="body-text grid grid-cols-1 gap-1 sm:grid-cols-2 lg:flex lg:flex-col lg:justify-center lg:gap-0 lg:pr-2"
-          role="tablist"
           aria-label={dict.eyebrow}
           variants={riseVariants}
         >
@@ -82,12 +81,11 @@ export default function Services({ locale, dict }: ServicesProps) {
 
             return (
               <li key={item.id} className="min-w-0 lg:w-full">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActiveId(item.id)}
-                  className={`relative w-full cursor-pointer px-3 py-3 text-left text-[15px] leading-snug font-medium tracking-[0.08em] uppercase transition-colors duration-300 sm:px-4 sm:tracking-[0.12em] lg:px-5 lg:py-4 lg:tracking-[0.14em] ${
+                <Link
+                  href={`${getLocalizedPath(locale, "/events")}#${item.id}`}
+                  onMouseEnter={() => setActiveId(item.id)}
+                  onFocus={() => setActiveId(item.id)}
+                  className={`group relative block w-full px-3 py-3 text-left text-[15px] leading-snug font-medium tracking-[0.08em] uppercase transition-colors duration-300 sm:px-4 sm:tracking-[0.12em] lg:px-5 lg:py-4 lg:tracking-[0.14em] ${
                     isActive
                       ? "text-neutral-900"
                       : "text-neutral-500 hover:text-neutral-800"
@@ -96,21 +94,15 @@ export default function Services({ locale, dict }: ServicesProps) {
                   <span className="block break-words text-[16px] hyphens-auto md:text-[18px]">
                     {item.label}
                   </span>
-                  <motion.span
-                    className="absolute right-3 bottom-1 left-3 h-[2px] origin-left bg-neutral-900 sm:right-4 sm:left-4 lg:right-5 lg:left-5"
-                    initial={false}
-                    animate={{
-                      scaleX: isActive ? 1 : 0,
-                      opacity: isActive ? 1 : 0,
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: easeOut,
-                      opacity: { duration: 0.35, ease: easeOut },
-                    }}
+                  <span
+                    className={`absolute right-3 bottom-1 left-3 h-[2px] origin-left bg-neutral-900 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:right-4 sm:left-4 lg:right-5 lg:left-5 ${
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
                     aria-hidden="true"
                   />
-                </button>
+                </Link>
               </li>
             );
           })}
