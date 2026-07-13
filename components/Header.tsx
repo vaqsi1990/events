@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   getDictionary,
@@ -22,20 +22,6 @@ function switchLocalePath(pathname: string, nextLocale: Locale) {
   return `/${nextLocale}${pathname === "/" ? "" : pathname}`;
 }
 
-function Chevron({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 12 12" fill="none" aria-hidden="true">
-      <path
-        d="M2.5 4.5 6 8l3.5-3.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 type HeaderProps = {
   locale: Locale;
 };
@@ -43,23 +29,16 @@ type HeaderProps = {
 const Header = ({ locale }: HeaderProps) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [eventsOpen, setEventsOpen] = useState(false);
-  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
-  const eventsRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const dict = getDictionary(locale);
 
   const navLinks = [
+    { href: getLocalizedPath(locale, "/events"), label: dict.nav.events },
     { href: getLocalizedPath(locale, "/services"), label: dict.nav.services },
     { href: getLocalizedPath(locale, "/works"), label: dict.nav.works },
     { href: getLocalizedPath(locale, "/about"), label: dict.nav.about },
     { href: getLocalizedPath(locale, "/contact"), label: dict.nav.contact },
   ];
-
-  const eventLinks = dict.nav.eventTypes.map((item) => ({
-    ...item,
-    href: getLocalizedPath(locale, item.href),
-  }));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -77,22 +56,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   useEffect(() => {
     setOpen(false);
-    setEventsOpen(false);
-    setMobileEventsOpen(false);
   }, [pathname]);
-
-  useEffect(() => {
-    if (!eventsOpen) return;
-
-    const onPointerDown = (event: MouseEvent) => {
-      if (!eventsRef.current?.contains(event.target as Node)) {
-        setEventsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", onPointerDown);
-    return () => document.removeEventListener("mousedown", onPointerDown);
-  }, [eventsOpen]);
 
   const light = scrolled && !open;
 
@@ -146,69 +110,6 @@ const Header = ({ locale }: HeaderProps) => {
             className="body-text relative hidden items-center justify-center gap-8 lg:flex xl:gap-10"
             aria-label={dict.nav.mainAria}
           >
-            <div
-              ref={eventsRef}
-              className="relative"
-              onMouseEnter={() => setEventsOpen(true)}
-              onMouseLeave={() => setEventsOpen(false)}
-            >
-              <button
-                type="button"
-                className="group relative flex cursor-pointer items-center gap-1.5 whitespace-nowrap text-[15px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:text-[16px]"
-                aria-expanded={eventsOpen}
-                aria-haspopup="true"
-                onClick={() => setEventsOpen((prev) => !prev)}
-              >
-                {dict.nav.events}
-                <Chevron
-                  className={`size-3 transition-transform duration-300 ${
-                    eventsOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute -bottom-1 left-0 h-px transition-all duration-300 ${
-                    eventsOpen ? "w-full" : "w-0 group-hover:w-full"
-                  } ${light ? "bg-black" : "bg-white"}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {eventsOpen && (
-                  <motion.div
-                    className="absolute top-full left-1/2 z-50 pt-4 -translate-x-1/2"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.25, ease: easeOut }}
-                  >
-                    <ul
-                      className={`min-w-[260px] border px-1 py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)] ${
-                        light
-                          ? "border-black/10 bg-white text-neutral-900"
-                          : "border-white/15 bg-[rgba(18,18,18,0.96)] text-white backdrop-blur-md"
-                      }`}
-                    >
-                      {eventLinks.map((item) => (
-                        <li key={item.id}>
-                          <Link
-                            href={item.href}
-                            className={`block px-4 py-3 text-[13px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
-                              light
-                                ? "hover:bg-neutral-100"
-                                : "hover:bg-white/10"
-                            }`}
-                            onClick={() => setEventsOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -284,46 +185,6 @@ const Header = ({ locale }: HeaderProps) => {
               className="body-text flex min-h-full flex-col justify-center gap-1 px-8 pt-24 pb-10"
               aria-label={dict.nav.mobileAria}
             >
-              <div>
-                <button
-                  type="button"
-                  className="flex w-full cursor-pointer items-center justify-between py-3 text-left text-2xl tracking-[0.12em] uppercase"
-                  aria-expanded={mobileEventsOpen}
-                  onClick={() => setMobileEventsOpen((prev) => !prev)}
-                >
-                  {dict.nav.events}
-                  <Chevron
-                    className={`size-4 transition-transform duration-300 ${
-                      mobileEventsOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {mobileEventsOpen && (
-                    <motion.ul
-                      className="mb-2 overflow-hidden border-l border-white/20 pl-4"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: easeOut }}
-                    >
-                      {eventLinks.map((item) => (
-                        <li key={item.id}>
-                          <Link
-                            href={item.href}
-                            className="block py-2.5 text-base tracking-[0.08em] text-white/80 uppercase transition-opacity duration-300 hover:opacity-70"
-                            onClick={() => setOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </motion.ul>
-                  )}
-                </AnimatePresence>
-              </div>
-
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
