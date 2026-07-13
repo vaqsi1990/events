@@ -47,7 +47,7 @@ export default function PageShell({
       className={`min-h-[100svh] bg-[#F3EEE8] pt-28 text-white ${className}`}
     >
       {(eyebrow || title) && (
-        <header className="mx-auto max-w-[1400px] px-5 pb-16 md:px-8">
+        <header className="mx-auto max-w-[1400px] text-center px-5 pb-16 md:px-8">
           {eyebrow && (
             <p
               data-reveal

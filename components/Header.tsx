@@ -56,7 +56,9 @@ const Header = ({ locale }: HeaderProps) => {
     setOpen(false);
   }, [pathname]);
 
-  const light = scrolled && !open;
+  const isHome =
+    pathname === `/${locale}` || pathname === `/${locale}/`;
+  const light = (!isHome || scrolled) && !open;
 
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
     <div
