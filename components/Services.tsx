@@ -87,15 +87,29 @@ export default function Services({ locale, dict }: ServicesProps) {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActiveId(item.id)}
-                  className={`w-full cursor-pointer px-3 py-3 text-left text-[15px] leading-snug font-medium tracking-[0.08em] uppercase transition-colors duration-300 sm:px-4 sm:tracking-[0.12em] lg:px-5 lg:py-4 lg:tracking-[0.14em] ${
+                  className={`relative w-full cursor-pointer px-3 py-3 text-left text-[15px] leading-snug font-medium tracking-[0.08em] uppercase transition-colors duration-300 sm:px-4 sm:tracking-[0.12em] lg:px-5 lg:py-4 lg:tracking-[0.14em] ${
                     isActive
-                      ? "bg-[#B58A4B] text-[#FFFFFF] rounded-xl"
-                      : "bg-transparent text-neutral-500 hover:text-neutral-800"
+                      ? "text-neutral-900"
+                      : "text-neutral-500 hover:text-neutral-800"
                   }`}
                 >
-                  <span className="block break-words md:text-[18px] text-[16px] hyphens-auto">
+                  <span className="block break-words text-[16px] hyphens-auto md:text-[18px]">
                     {item.label}
                   </span>
+                  <motion.span
+                    className="absolute right-3 bottom-1 left-3 h-[2px] origin-left bg-neutral-900 sm:right-4 sm:left-4 lg:right-5 lg:left-5"
+                    initial={false}
+                    animate={{
+                      scaleX: isActive ? 1 : 0,
+                      opacity: isActive ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: easeOut,
+                      opacity: { duration: 0.35, ease: easeOut },
+                    }}
+                    aria-hidden="true"
+                  />
                 </button>
               </li>
             );

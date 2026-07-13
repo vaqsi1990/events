@@ -31,11 +31,11 @@ const riseVariants = {
 export default function Rounds({ dict }: RoundsProps) {
   return (
     <motion.section
-      className="bg-[#F3EEE8]  mt-20"
+      className="mt-20 bg-[#F3EEE8] pb-20"
       variants={sectionVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.12 }}
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <motion.h2
@@ -46,41 +46,54 @@ export default function Rounds({ dict }: RoundsProps) {
         </motion.h2>
 
         <motion.ul
-          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:mt-16 lg:grid-cols-6"
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:mt-16 lg:grid-cols-6 lg:gap-7"
           variants={sectionVariants}
         >
           {dict.steps.map((step, index) => {
-            const isLast = index === dict.steps.length - 1;
-            const hasRightBorderSm = index % 2 === 0 && !isLast;
-            const hasRightBorderLg = index === 0 || index === 1 || index === 3;
+            const number = String(index + 1).padStart(2, "0");
+            const isSecondRow = index >= 3;
 
             return (
               <motion.li
                 key={step.title}
                 variants={riseVariants}
-                className={`px-6 py-10 text-center sm:px-8 sm:py-12 ${
-                  hasRightBorderSm ? "sm:border-r sm:border-neutral-600/80" : ""
-                } ${
-                  hasRightBorderLg
-                    ? "lg:border-r lg:border-neutral-600/80"
-                    : "lg:border-r-0"
-                } ${
-                  index < 3
-                    ? "lg:col-span-2"
-                    : index === 3
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.35, ease: easeOut }}
+                className={`group relative overflow-hidden rounded-xl bg-[#FAF7F3] ${
+                  isSecondRow
+                    ? index === 3
                       ? "lg:col-span-2 lg:col-start-2"
                       : "lg:col-span-2"
+                    : "lg:col-span-2"
                 }`}
               >
-                <p className="body-text text-[15px] tracking-[0.08em] text-neutral-600">
-                  - {index + 1} -
-                </p>
-                <h3 className="body-text mt-4 text-[17px] font-semibold text-neutral-900 md:text-[18px]">
-                  {step.title}
-                </h3>
-                <p className="body-text mx-auto mt-4 max-w-[28rem] text-[15px] leading-relaxed text-neutral-600">
-                  {step.description}
-                </p>
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#A08968]/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative flex h-full flex-col px-6 pt-8 pb-7 sm:px-7 sm:pt-9 sm:pb-8">
+                  <span
+                    className="main-text pointer-events-none absolute top-3 right-4 text-[64px] leading-none font-normal tracking-[-0.04em] text-[#A08968]/12 transition-colors duration-500 group-hover:text-[#A08968]/22 sm:top-2 sm:right-5 sm:text-[76px]"
+                    aria-hidden="true"
+                  >
+                    {number}
+                  </span>
+
+                  <div className="relative flex items-center gap-3">
+                    <span className="body-text text-[13px] font-medium tracking-[0.2em] text-[#A08968] uppercase">
+                      {number}
+                    </span>
+                   
+                  </div>
+
+                  <h3 className="body-text relative mt-5 text-[17px] font-semibold tracking-[0.02em] text-neutral-900 md:text-[18px]">
+                    {step.title}
+                  </h3>
+
+                  <p className="body-text relative mt-3 flex-1 text-[15px] leading-relaxed text-neutral-600">
+                    {step.description}
+                  </p>
+
+                 
+                </div>
               </motion.li>
             );
           })}
