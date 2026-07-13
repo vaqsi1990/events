@@ -139,25 +139,28 @@ export default function Services({ locale, dict }: ServicesProps) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`panel-${active.id}`}
-                className="bg-white rounded-xl border-[1px] border-solid border-[#EAE3D8]  px-5 py-6 sm:px-7 sm:py-8 md:px-9 md:py-10"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.55, ease: easeOut, delay: 0.08 }}
               >
-                <p className="body-text text-[16px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
-                  {active.label}
-                </p>
-                <h3 className="main-text mt-3 text-[15px] leading-snug break-words text-neutral-900 sm:mt-4 sm:text-[16px] md:text-[20px] md:leading-[1.2]">
-                  {active.heading}  <Link
+                <Link
                   href={getLocalizedPath(locale, `/events#${active.id}`)}
-                  className="body-text mt-5 inline-flex max-w-full flex-wrap items-center gap-2 text-[16px] font-medium tracking-[0.16em] text-neutral-900 uppercase transition-opacity duration-300 hover:opacity-55 sm:mt-7"
+                  className="block rounded-xl border border-solid border-[#EAE3D8] bg-white px-5 py-6 transition-opacity duration-300 hover:opacity-80 sm:px-7 sm:py-8 md:px-9 md:py-10"
                 >
-                
-                  <span aria-hidden="true">→</span>
+                  <p className="body-text text-[16px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
+                    {active.label}
+                  </p>
+                  <h3 className="main-text mt-3 flex items-start gap-3 text-[15px] leading-snug break-words text-neutral-900 sm:mt-4 sm:text-[16px] md:text-[20px] md:leading-[1.2]">
+                    <span className="min-w-0 flex-1">{active.heading}</span>
+                    <span
+                      className="body-text shrink-0 text-[16px] font-medium"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </h3>
                 </Link>
-                </h3>
-               
               </motion.div>
             </AnimatePresence>
           </div>
