@@ -16,7 +16,7 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <PageShell title={dict.nav.contact}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-white/65">
+      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
         {locale === "ka"
           ? "საკონტაქტო ფორმა მალე დაემატება."
           : "The contact form is coming soon."}

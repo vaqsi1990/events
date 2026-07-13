@@ -16,7 +16,7 @@ export default async function WorksPage({ params }: Props) {
 
   return (
     <PageShell title={dict.nav.works}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-white/65">
+      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
         {locale === "ka"
           ? "ნამუშევრების გალერეა მალე დაემატება."
           : "The works gallery is coming soon."}

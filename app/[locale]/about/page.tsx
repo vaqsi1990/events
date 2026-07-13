@@ -16,7 +16,7 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <PageShell title={dict.nav.about}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-white/65">
+      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
         {locale === "ka"
           ? "ჩვენს შესახებ გვერდი მალე დაემატება."
           : "The about page is coming soon."}

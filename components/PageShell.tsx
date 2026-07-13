@@ -44,14 +44,14 @@ export default function PageShell({
   return (
     <main
       ref={rootRef}
-      className={`min-h-[100svh] bg-[#0c0c0c] pt-28 text-white ${className}`}
+      className={`min-h-[100svh] bg-[#F3EEE8] pt-28 text-white ${className}`}
     >
       {(eyebrow || title) && (
         <header className="mx-auto max-w-[1400px] px-5 pb-16 md:px-8">
           {eyebrow && (
             <p
               data-reveal
-              className="body-text mb-4 text-sm tracking-[0.2em] text-white/50 uppercase"
+              className="body-text mb-4 text-sm tracking-[0.2em] text-neutral-900/50 uppercase"
             >
               {eyebrow}
             </p>
@@ -59,14 +59,14 @@ export default function PageShell({
           {title && (
             <h1
               data-reveal
-              className="main-text text-4xl tracking-tight md:text-6xl lg:text-7xl"
+              className="main-text text-4xl tracking-tight text-neutral-900 md:text-6xl lg:text-7xl"
             >
               {title}
             </h1>
           )}
         </header>
       )}
-      <div data-reveal className="mx-auto max-w-[1400px] px-5 pb-24 md:px-8">
+      <div data-reveal className="mx-auto max-w-[1400px] px-5 pb-24 text-neutral-900 md:px-8">
         {children}
       </div>
     </main>

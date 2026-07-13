@@ -16,7 +16,7 @@ export default async function ServicesPage({ params }: Props) {
 
   return (
     <PageShell title={dict.nav.services} eyebrow={dict.services.eyebrow}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-white/65">
+      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
         {dict.services.title}
       </p>
     </PageShell>

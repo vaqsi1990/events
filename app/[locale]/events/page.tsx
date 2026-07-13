@@ -16,7 +16,7 @@ export default async function EventsPage({ params }: Props) {
 
   return (
     <PageShell title={dict.nav.events} eyebrow={dict.nav.events}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-white/65">
+      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
         {locale === "ka"
           ? "ღონისძიებების გვერდი მალე დაემატება."
           : "The events page is coming soon."}
