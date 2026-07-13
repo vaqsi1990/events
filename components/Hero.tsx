@@ -63,7 +63,7 @@ export default function Hero({ locale, dict }: HeroProps) {
           animate="show"
         >
           <motion.h1
-            className="main-text text-[20px] leading-tight font-semibold tracking-wide md:text-[30px] md:leading-[1.15]"
+            className="main-text text-[26px] leading-tight font-normal tracking-[0.04em] text-white uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
             variants={itemVariants}
           >
             {dict.title}

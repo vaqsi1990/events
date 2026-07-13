@@ -39,7 +39,7 @@ export default function Rounds({ dict }: RoundsProps) {
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <motion.h2
-          className="body-text text-center text-[22px] font-semibold text-neutral-900 sm:text-[26px] md:text-[30px]"
+          className="main-text pt-20 text-center text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
           variants={riseVariants}
         >
           {dict.title}
@@ -59,10 +59,10 @@ export default function Rounds({ dict }: RoundsProps) {
                 key={step.title}
                 variants={riseVariants}
                 className={`px-6 py-10 text-center sm:px-8 sm:py-12 ${
-                  hasRightBorderSm ? "sm:border-r sm:border-neutral-300/80" : ""
+                  hasRightBorderSm ? "sm:border-r sm:border-neutral-600/80" : ""
                 } ${
                   hasRightBorderLg
-                    ? "lg:border-r lg:border-neutral-300/80"
+                    ? "lg:border-r lg:border-neutral-600/80"
                     : "lg:border-r-0"
                 } ${
                   index < 3

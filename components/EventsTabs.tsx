@@ -112,7 +112,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                 <p className="body-text text-[12px] tracking-[0.18em] text-neutral-500 uppercase">
                   {active.label}
                 </p>
-                <h2 className="main-text mt-4 text-[28px] leading-snug text-neutral-900 md:text-[40px] md:leading-[1.15]">
+                <h2 className="main-text mt-4 text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]">
                   {active.heading}
                 </h2>
               </div>

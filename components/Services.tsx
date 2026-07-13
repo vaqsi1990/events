@@ -41,7 +41,7 @@ export default function Services({ locale, dict }: ServicesProps) {
 
   return (
     <motion.section
-      className="bg-white "
+      className="bg-[#F3EEE8] "
       variants={sectionVariants}
       initial="hidden"
       whileInView="show"
@@ -63,7 +63,7 @@ export default function Services({ locale, dict }: ServicesProps) {
 
           <Link
             href={getLocalizedPath(locale, "/events")}
-            className="body-text text-center mx-auto inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[16px]"
+            className="body-text text-center i inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:tracking-[0.18em] md:self-auto md:text-[18px]"
           >
             {dict.cta}
           </Link>
@@ -89,7 +89,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                   onClick={() => setActiveId(item.id)}
                   className={`w-full cursor-pointer px-3 py-3 text-left text-[15px] leading-snug font-medium tracking-[0.08em] uppercase transition-colors duration-300 sm:px-4 sm:tracking-[0.12em] lg:px-5 lg:py-4 lg:tracking-[0.14em] ${
                     isActive
-                      ? "bg-[#F3EEE8] text-neutral-900"
+                      ? "bg-[#B58A4B] text-[#FFFFFF] rounded-xl"
                       : "bg-transparent text-neutral-500 hover:text-neutral-800"
                   }`}
                 >
@@ -106,38 +106,40 @@ export default function Services({ locale, dict }: ServicesProps) {
           className="relative lg:flex lg:min-h-[420px] lg:items-center"
           variants={riseVariants}
         >
-          <div className="relative ml-auto h-[280px] w-full overflow-hidden bg-white sm:h-[340px] md:h-[400px] lg:h-[460px] lg:w-[72%] xl:h-[500px] xl:w-[75%]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.id}
-                className="absolute inset-0"
-                initial={{ opacity: 0, scale: 1.06 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.02 }}
-                transition={{ duration: 0.7, ease: easeOut }}
-              >
-                <Image
-                  src={active.image}
-                  alt={active.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover"
-                  priority={active.id === dict.items[0].id}
-                />
-              </motion.div>
-            </AnimatePresence>
+          <div className="relative ml-auto h-[280px] w-full bg-[#EAE3D8] p-px sm:h-[340px] md:h-[400px] lg:h-[460px] lg:w-[72%] xl:h-[500px] xl:w-[75%]">
+            <div className="relative h-full w-full overflow-hidden bg-white">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active.id}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0, scale: 1.06 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.7, ease: easeOut }}
+                >
+                  <Image
+                    src={active.image}
+                    alt={active.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                    priority={active.id === dict.items[0].id}
+                  />
+                </motion.div>
+              </AnimatePresence>
 
-            <div
-              className="pointer-events-none absolute inset-0 bg-black/35"
-              aria-hidden="true"
-            />
+              <div
+                className="pointer-events-none absolute inset-0 bg-black/35"
+                aria-hidden="true"
+              />
+            </div>
           </div>
 
           <div className="relative z-10 mx-auto -mt-14 w-[min(100%,22rem)] px-0 sm:-mt-16 sm:w-[min(100%,24rem)] lg:absolute lg:top-1/2 lg:left-[10%] lg:mx-0 lg:mt-0 lg:w-[min(100%,26rem)] lg:-translate-y-1/2 xl:left-[12%] xl:w-[28rem]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`panel-${active.id}`}
-                className="bg-white px-5 py-6 sm:px-7 sm:py-8 md:px-9 md:py-10"
+                className="bg-white rounded-xl border-[1px] border-solid border-[#EAE3D8]  px-5 py-6 sm:px-7 sm:py-8 md:px-9 md:py-10"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -147,17 +149,15 @@ export default function Services({ locale, dict }: ServicesProps) {
                   {active.label}
                 </p>
                 <h3 className="main-text mt-3 text-[15px] leading-snug break-words text-neutral-900 sm:mt-4 sm:text-[16px] md:text-[20px] md:leading-[1.2]">
-                  {active.heading}
-                </h3>
-                <Link
+                  {active.heading}  <Link
                   href={getLocalizedPath(locale, `/events#${active.id}`)}
                   className="body-text mt-5 inline-flex max-w-full flex-wrap items-center gap-2 text-[16px] font-medium tracking-[0.16em] text-neutral-900 uppercase transition-opacity duration-300 hover:opacity-55 sm:mt-7"
                 >
-                  <span className="break-words">
-                    {dict.explore} {active.label}
-                  </span>
+                
                   <span aria-hidden="true">→</span>
                 </Link>
+                </h3>
+               
               </motion.div>
             </AnimatePresence>
           </div>

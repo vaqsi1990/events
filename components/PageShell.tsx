@@ -59,7 +59,7 @@ export default function PageShell({
           {title && (
             <h1
               data-reveal
-              className="main-text text-4xl tracking-tight text-neutral-900 md:text-6xl lg:text-7xl"
+              className="main-text text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
             >
               {title}
             </h1>

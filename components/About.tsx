@@ -34,7 +34,7 @@ const riseVariants = {
 export default function About({ locale, dict, showCta = true }: AboutProps) {
   return (
     <motion.section
-      className="bg-white py-20"
+      className="bg-[#F3EEE8] py-20"
       variants={sectionVariants}
       initial="hidden"
       whileInView="show"
@@ -77,7 +77,7 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
           <motion.div className="mt-10 md:mt-12" variants={riseVariants}>
             <Link
               href={getLocalizedPath(locale, "/about")}
-              className="body-text inline-flex items-center border border-neutral-900 px-7 py-3.5 text-[12px] font-medium tracking-[0.18em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:text-[13px]"
+              className="body-text inline-flex items-center border rounded-xl border-neutral-900 px-7 py-3.5 text-[12px] font-medium tracking-[0.18em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white md:text-[18px] text-{16px]"
             >
               {dict.cta}
             </Link>
