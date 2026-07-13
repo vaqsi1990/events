@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Manrope, Noto_Sans_Georgian, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
+import FloatingContact from "@/components/FloatingContact";
 import {
   defaultLocale,
   getDictionary,
@@ -71,6 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       >
         <Header locale={locale} />
         {children}
+        <FloatingContact locale={locale} />
       </body>
     </html>
   );

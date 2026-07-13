@@ -17,6 +17,21 @@ const dictionaries = {
       works: "ნამუშევრები",
       about: "ჩვენს შესახებ",
       contact: "კონტაქტები",
+      events: "ღონისძიებები",
+      eventTypes: [
+        { id: "private", label: "კერძო ღონისძიებები", href: "/events/private" },
+        {
+          id: "corporate",
+          label: "კორპორატიული ღონისძიებები",
+          href: "/events/corporate",
+        },
+        {
+          id: "entertainment",
+          label: "გასართობი ღონისძიებები",
+          href: "/events/entertainment",
+        },
+        { id: "brand", label: "ბრენდული ღონისძიებები", href: "/events/brand" },
+      ],
       mainAria: "მთავარი ნავიგაცია",
       mobileAria: "მობილური ნავიგაცია",
       openMenu: "მენიუს გახსნა",
@@ -35,32 +50,32 @@ const dictionaries = {
       explore: "გაიცანით",
       items: [
         {
-          id: "social",
-          label: "სოციალური ღონისძიებები",
-          heading: "შეხვედრები, რომლებიც რჩება მეხსიერებაში.",
+          id: "private",
+          label: "კერძო ღონისძიებები",
+          heading: "პირადი მომენტები, რომლებიც სამუდამოდ რჩება.",
           image: "/hero.jpg",
-          imageAlt: "სოციალური ღონისძიება",
-        },
-        {
-          id: "nonprofit",
-          label: "არაკომერციული",
-          heading: "მიზანი, რომელიც ლამაზად ჟღერს.",
-          image: "/hero.jpg",
-          imageAlt: "არაკომერციული ღონისძიება",
+          imageAlt: "კერძო ღონისძიება",
         },
         {
           id: "corporate",
-          label: "კორპორატიული",
+          label: "კორპორატიული ღონისძიებები",
           heading: "ბიზნესი, რომელიც შთაბეჭდილებას ტოვებს.",
           image: "/hero.jpg",
           imageAlt: "კორპორატიული ღონისძიება",
         },
         {
-          id: "consulting",
-          label: "კონსულტა",
-          heading: "იდეიდან გამორჩეულ გამოცდილებამდე.",
+          id: "entertainment",
+          label: "გასართობი ღონისძიებები",
+          heading: "ატმოსფერო, რომელიც ყველას აერთიანებს.",
           image: "/hero.jpg",
-          imageAlt: "კონსულტა",
+          imageAlt: "გასართობი ღონისძიება",
+        },
+        {
+          id: "brand",
+          label: "ბრენდული ღონისძიებები",
+          heading: "ბრენდი, რომელიც ცოცხლდება სივრცეში.",
+          image: "/hero.jpg",
+          imageAlt: "ბრენდული ღონისძიება",
         },
       ],
     },
@@ -68,6 +83,43 @@ const dictionaries = {
       ka: "ქარ",
       en: "EN",
       switchAria: "ენის არჩევა",
+    },
+    rounds: {
+      title: "ღონისძიების ორგანიზების ეტაპები",
+      steps: [
+        {
+          title: "მიზნების განსაზღვრა",
+          description:
+            "ვაზუსტებთ ღონისძიების მიზნებს, აუდიტორიას და ბიუჯეტს — რომ ყველა შემდეგი ნაბიჯი სწორი მიმართულებით წავიდეს.",
+        },
+        {
+          title: "კონცეფციის შემუშავება",
+          description:
+            "ვქმნით იდეას და ვამტკიცებთ ფორმატს: ატმოსფერო, სტილი და ის დეტალები, რომლებიც გამოცდილებას გამორჩეულს ხდის.",
+        },
+        {
+          title: "სცენარი და თაიმინგი",
+          description:
+            "ვწერთ დეტალურ სცენარს და განრიგს — რომ დღე ზუსტად, მშვიდად და შთამბეჭდავად წარიმართოს.",
+        },
+        {
+          title: "მომზადება და ორგანიზება",
+          description:
+            "ვაკოორდინირებთ ლოკაციას, მომწოდებლებს და გუნდს; ვაკონტროლებთ ვადებს და ყველა ტექნიკურ დეტალს.",
+        },
+        {
+          title: "ღონისძიების კონტროლი",
+          description:
+            "ადგილზე ვმართავთ პროცესს თავიდან ბოლომდე — რომ თქვენ მხოლოდ მომენტით და სტუმრებით ისიამოვნოთ.",
+        },
+      ],
+    },
+    floatingContact: {
+      open: "კონტაქტის გახსნა",
+      close: "დახურვა",
+      whatsapp: "WhatsApp",
+      facebook: "Facebook",
+      phone: "დარეკვა",
     },
   },
   en: {
@@ -80,6 +132,21 @@ const dictionaries = {
       works: "Works",
       about: "About Us",
       contact: "Contact",
+      events: "Events",
+      eventTypes: [
+        { id: "private", label: "Private Events", href: "/events/private" },
+        {
+          id: "corporate",
+          label: "Corporate Events",
+          href: "/events/corporate",
+        },
+        {
+          id: "entertainment",
+          label: "Entertainment Events",
+          href: "/events/entertainment",
+        },
+        { id: "brand", label: "Brand Events", href: "/events/brand" },
+      ],
       mainAria: "Main navigation",
       mobileAria: "Mobile navigation",
       openMenu: "Open menu",
@@ -98,32 +165,32 @@ const dictionaries = {
       explore: "Explore",
       items: [
         {
-          id: "social",
-          label: "Social Events",
-          heading: "Gatherings that linger in memory.",
+          id: "private",
+          label: "Private Events",
+          heading: "Personal moments that stay forever.",
           image: "/hero.jpg",
-          imageAlt: "Social event",
-        },
-        {
-          id: "nonprofit",
-          label: "Non-Profit",
-          heading: "A cause, told beautifully.",
-          image: "/hero.jpg",
-          imageAlt: "Non-profit event",
+          imageAlt: "Private event",
         },
         {
           id: "corporate",
-          label: "Corporate",
+          label: "Corporate Events",
           heading: "Business that leaves an impression.",
           image: "/hero.jpg",
           imageAlt: "Corporate event",
         },
         {
-          id: "consulting",
-          label: "Consultancy",
-          heading: "From idea to a signature experience.",
+          id: "entertainment",
+          label: "Entertainment Events",
+          heading: "An atmosphere that brings everyone together.",
           image: "/hero.jpg",
-          imageAlt: "Consultancy",
+          imageAlt: "Entertainment event",
+        },
+        {
+          id: "brand",
+          label: "Brand Events",
+          heading: "A brand that comes alive in space.",
+          image: "/hero.jpg",
+          imageAlt: "Brand event",
         },
       ],
     },
@@ -131,6 +198,43 @@ const dictionaries = {
       ka: "KA",
       en: "EN",
       switchAria: "Choose language",
+    },
+    rounds: {
+      title: "Stages of Event Organization",
+      steps: [
+        {
+          title: "Defining the goals",
+          description:
+            "We clarify the purpose, audience, and budget — so every next step moves in the right direction.",
+        },
+        {
+          title: "Concept development",
+          description:
+            "We shape the idea and approve the format: atmosphere, style, and the details that make the experience distinctive.",
+        },
+        {
+          title: "Script and timing",
+          description:
+            "We write a detailed script and schedule — so the day runs precisely, calmly, and impressively.",
+        },
+        {
+          title: "Preparation and organization",
+          description:
+            "We coordinate the venue, vendors, and team; we manage deadlines and every technical detail.",
+        },
+        {
+          title: "On-site control",
+          description:
+            "We run the process on site from start to finish — so you can simply enjoy the moment and your guests.",
+        },
+      ],
+    },
+    floatingContact: {
+      open: "Open contact menu",
+      close: "Close",
+      whatsapp: "WhatsApp",
+      facebook: "Facebook",
+      phone: "Call",
     },
   },
 } as const;
