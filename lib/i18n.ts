@@ -230,6 +230,8 @@ const dictionaries = {
     },
     about: {
       title: "ვქმნით გამოცდილებებს, რომლებიც შთაბეჭდილებას ტოვებს",
+      image: "/hero.jpg",
+      imageAlt: "ღონისძიების ატმოსფერო",
       paragraphs: [
         [
           { text: "ყველა წარმატებული ღონისძიება ხედვით იწყება. " },
@@ -247,22 +249,6 @@ const dictionaries = {
           {
             text: " თანამშრომლობაზეა აგებული. ვუთმობთ დროს, რომ გავიგოთ თქვენი მიზნები, აუდიტორია და ის ატმოსფერო, რომლის შექმნაც გსურთ. ასე ვქმნით ღონისძიებებს, რომლებიც ავთენტური, მიზანმიმართული და უნიკალურად თქვენია.",
           },
-        ],
-        [
-          {
-            text: "კონცეფციის შემუშავებიდან და ლოკაციის შერჩევიდან დიზაინამდე, ლოგისტიკამდე, გართობამდე და ადგილზე კოორდინაციამდე — პროცესის ყოველ ეტაპს სიზუსტითა და პროფესიონალიზმით ვმართავთ. ჩვენი გუნდი თვლის, რომ გამორჩეული ღონისძიებები ",
-          },
-          { text: "სკრუპულოზური დაგეგმვის", highlight: true },
-          { text: ", კრეატიულობისა და გატაცების შედეგია." },
-        ],
-        [
-          {
-            text: "წლების განმავლობაში გვქონდა პატივი, ვიმუშაოთ ბიზნესებთან, ბრენდებთან და კერძო კლიენტებთან — და მიგვეწოდებინა ღონისძიებები, რომლებიც შთაგაგონებთ, აერთიანებთ და დაუვიწყარ მოგონებებს ტოვებს. ზომისა და სირთულის მიუხედავად, ყოველ პროექტს ერთნაირი ერთგულებითა და დეტალებზე ყურადღებით ვუდგებით.",
-          },
-        ],
-        [
-          { text: "ჩვენ უბრალოდ არ ვაწყობთ ღონისძიებებს — ", },
-          { text: "ვქმნით გამოცდილებებს, რომლებსაც ადამიანები იმახსოვრებენ.", highlight: true },
         ],
       ],
       cta: "გაიცანით ჩვენი გუნდი",
@@ -491,6 +477,8 @@ const dictionaries = {
     },
     about: {
       title: "We create experiences that leave a lasting impression",
+      image: "/hero.jpg",
+      imageAlt: "Event atmosphere",
       paragraphs: [
         [
           { text: "Every successful event begins with a vision. At " },
@@ -507,25 +495,6 @@ const dictionaries = {
           { text: "Our approach", highlight: true },
           {
             text: " is built on collaboration. We take the time to understand your goals, your audience, and the atmosphere you want to create. This allows us to design events that feel authentic, purposeful, and uniquely yours.",
-          },
-        ],
-        [
-          {
-            text: "From concept development and venue selection to design, logistics, entertainment, and on-site coordination, we manage every stage of the process with precision and professionalism. Our team believes that exceptional events are the result of ",
-          },
-          { text: "meticulous planning", highlight: true },
-          { text: " combined with creativity and passion." },
-        ],
-        [
-          {
-            text: "Over the years, we have had the privilege of working with businesses, brands, and private clients, delivering events that inspire, connect, and create lasting memories. No matter the size or complexity, we approach every project with the same dedication to quality and attention to detail.",
-          },
-        ],
-        [
-          { text: "We don't simply organize events—", },
-          {
-            text: "we create experiences people remember.",
-            highlight: true,
           },
         ],
       ],

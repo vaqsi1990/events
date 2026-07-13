@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { getLocalizedPath, type Dictionary, type Locale } from "@/lib/i18n";
@@ -40,49 +41,63 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
       whileInView="show"
       viewport={{ once: true, amount: 0.12 }}
     >
-      <div className="mx-auto max-w-[820px] px-5 text-center md:px-8">
-        <motion.h2
-          className="main-text text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
-          variants={riseVariants}
-        >
-          {dict.title}
-        </motion.h2>
+      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-2 md:gap-14 md:px-8 lg:gap-20">
+        <div>
+          <motion.h2
+            className="main-text text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
+            variants={riseVariants}
+          >
+            {dict.title}
+          </motion.h2>
 
-        <motion.div
-          className="mx-auto mt-14 h-12 w-px bg-neutral-600 md:mt-10 md:h-14"
-          variants={riseVariants}
-          aria-hidden="true"
-        />
 
-        <div className="body-text mt-8 space-y-6 text-[16px] leading-[1.85] text-neutral-600 md:mt-10 md:space-y-7 md:text-[18px] md:leading-[1.9]">
-          {dict.paragraphs.map((paragraph, index) => (
-            <motion.p key={index} variants={riseVariants}>
-              {paragraph.map((part, partIndex) =>
-                "highlight" in part && part.highlight ? (
-                  <span
-                    key={partIndex}
-                    className="font-medium text-[#A08968]"
-                  >
-                    {part.text}
-                  </span>
-                ) : (
-                  <span key={partIndex}>{part.text}</span>
-                ),
-              )}
-            </motion.p>
-          ))}
+          <div className="body-text mt-8 space-y-6 text-[16px] leading-[1.85] text-neutral-600 md:mt-10 md:space-y-7 md:text-[18px] md:leading-[1.9]">
+            {dict.paragraphs.map((paragraph, index) => (
+              <motion.p key={index} variants={riseVariants}>
+                {paragraph.map((part, partIndex) =>
+                  "highlight" in part && part.highlight ? (
+                    <span
+                      key={partIndex}
+                      className="font-medium text-[#A08968]"
+                    >
+                      {part.text}
+                    </span>
+                  ) : (
+                    <span key={partIndex}>{part.text}</span>
+                  ),
+                )}
+              </motion.p>
+            ))}
+          </div>
+
+          {showCta && (
+            <motion.div className="mt-10 md:mt-12" variants={riseVariants}>
+              <Link
+                href={getLocalizedPath(locale, "/about")}
+                className="body-text inline-flex items-center rounded-xl border border-neutral-900 px-7 py-3.5 text-[16px] font-medium tracking-[0.18em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white md:text-[18px]"
+              >
+                {dict.cta}
+              </Link>
+            </motion.div>
+          )}
         </div>
 
-        {showCta && (
-          <motion.div className="mt-10 md:mt-12" variants={riseVariants}>
-            <Link
-              href={getLocalizedPath(locale, "/about")}
-              className="body-text inline-flex items-center border rounded-xl border-neutral-900 px-7 py-3.5 text-[12px] font-medium tracking-[0.18em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white md:text-[18px] text-{16px]"
-            >
-              {dict.cta}
-            </Link>
-          </motion.div>
-        )}
+        <motion.div
+          className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-neutral-200 sm:aspect-[5/6] md:aspect-[4/5]"
+          variants={riseVariants}
+        >
+          <Image
+            src={dict.image}
+            alt={dict.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-0 bg-black/40"
+            aria-hidden="true"
+          />
+        </motion.div>
       </div>
     </motion.section>
   );
