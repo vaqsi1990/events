@@ -62,7 +62,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   const LanguageSwitcher = ({ className = "" }: { className?: string }) => (
     <div
-      className={`flex items-center gap-2 text-[16px] tracking-[0.14em] uppercase ${className}`}
+      className={`flex items-center gap-2 text-[16px] md:text-[18px] tracking-[0.14em] uppercase ${className}`}
       aria-label={dict.language.switchAria}
     >
       {locales.map((code, index) => (
@@ -114,7 +114,7 @@ const Header = ({ locale }: HeaderProps) => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative shrink-0 whitespace-nowrap text-[15px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:text-[16px]"
+                className="group relative shrink-0 whitespace-nowrap text-[16px] font-medium tracking-[0.12em] uppercase transition-opacity duration-300 hover:opacity-70 xl:text-[18px]"
               >
                 {link.label}
                 <span

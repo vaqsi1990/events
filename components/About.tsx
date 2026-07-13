@@ -54,7 +54,7 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
           aria-hidden="true"
         />
 
-        <div className="body-text mt-8 space-y-6 text-[15px] leading-[1.85] text-neutral-600 md:mt-10 md:space-y-7 md:text-[16px] md:leading-[1.9]">
+        <div className="body-text mt-8 space-y-6 text-[16px] leading-[1.85] text-neutral-600 md:mt-10 md:space-y-7 md:text-[18px] md:leading-[1.9]">
           {dict.paragraphs.map((paragraph, index) => (
             <motion.p key={index} variants={riseVariants}>
               {paragraph.map((part, partIndex) =>

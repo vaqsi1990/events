@@ -223,6 +223,11 @@ const dictionaries = {
       facebook: "Facebook",
       phone: "დარეკვა",
     },
+    footer: {
+      getInTouch: "დაგვიკავშირდით",
+      phoneLabel: "ტელ",
+      rights: "ყველა უფლება დაცულია",
+    },
     about: {
       title: "ვქმნით გამოცდილებებს, რომლებიც შთაბეჭდილებას ტოვებს",
       paragraphs: [
@@ -478,6 +483,11 @@ const dictionaries = {
       whatsapp: "WhatsApp",
       facebook: "Facebook",
       phone: "Call",
+    },
+    footer: {
+      getInTouch: "Get in Touch",
+      phoneLabel: "Tel",
+      rights: "All rights reserved",
     },
     about: {
       title: "We create experiences that leave a lasting impression",

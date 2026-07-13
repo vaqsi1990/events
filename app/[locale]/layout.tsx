@@ -12,6 +12,7 @@ import {
   type Locale,
 } from "@/lib/i18n";
 import "../globals.css";
+import Footer from "@/components/Footer";
 
 const playfair = Playfair_Display({
   variable: "--font-main",
@@ -76,6 +77,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PageTransition brand="Event">
             <Header locale={locale} />
             {children}
+            <Footer locale={locale} />
             <FloatingContact locale={locale} />
           </PageTransition>
         </SmoothScroll>

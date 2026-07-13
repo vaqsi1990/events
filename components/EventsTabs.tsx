@@ -49,7 +49,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => selectTab(item.id)}
-                className={`body-text relative cursor-pointer pb-3 text-left text-[16px] whitespace-nowrap transition-colors duration-300  md:pb-3.5  ${
+                className={`body-text relative cursor-pointer pb-3 text-left text-[16px] md:text-[18px] whitespace-nowrap transition-colors duration-300  md:pb-3.5  ${
                   isActive
                     ? "font-semibold text-neutral-900"
                     : "font-normal text-neutral-600 hover:text-neutral-700"
@@ -98,7 +98,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                       aria-hidden="true"
                     />
                     <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
-                      <h3 className="body-text max-w-[14ch] text-[18px] leading-snug font-medium text-white sm:text-[20px] md:text-[22px]">
+                      <h3 className="body-text max-w-[14ch] text-[16px] md:text-[18px] leading-snug font-medium text-white ">
                         {card.label}
                       </h3>
                     </div>

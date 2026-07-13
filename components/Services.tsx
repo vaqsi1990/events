@@ -53,7 +53,7 @@ export default function Services({ locale, dict }: ServicesProps) {
       >
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
           <div className="min-w-0 max-w-3xl">
-            <p className="body-text text-[15px] text-center font-medium tracking-[0.16em] text-neutral-500 uppercase sm:text-[14px] sm:tracking-[0.2em] md:text-[16px] md:tracking-[0.22em]">
+            <p className="body-text text-[16px] text-center font-medium tracking-[0.16em] text-neutral-500 uppercase sm:text-[14px] sm:tracking-[0.2em] md:text-[18px] md:tracking-[0.22em]">
               {dict.eyebrow}
             </p>
             <h2 className="main-text mt-3 text-[22px] text-center leading-snug font-normal break-words text-neutral-900 sm:text-[28px] md:mt-4 md:text-[30px] md:leading-[1.15]">
@@ -93,7 +93,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                       : "bg-transparent text-neutral-500 hover:text-neutral-800"
                   }`}
                 >
-                  <span className="block break-words md:text-[16px] text-[15px] hyphens-auto">
+                  <span className="block break-words md:text-[18px] text-[16px] hyphens-auto">
                     {item.label}
                   </span>
                 </button>
@@ -151,7 +151,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                   <p className="body-text text-[16px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
                     {active.label}
                   </p>
-                  <h3 className="main-text mt-3 flex items-start gap-3 text-[15px] leading-snug break-words text-neutral-900 sm:mt-4 sm:text-[16px] md:text-[20px] md:leading-[1.2]">
+                  <h3 className="main-text mt-3 flex items-start gap-3 text-[16px] leading-snug break-words text-neutral-900 sm:mt-4  md:text-[18px] md:leading-[1.2]">
                     <span className="min-w-0 flex-1">{active.heading}</span>
                     <span
                       className="body-text shrink-0 text-[16px] font-medium"
