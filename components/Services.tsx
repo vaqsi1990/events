@@ -63,7 +63,7 @@ export default function Services({ locale, dict }: ServicesProps) {
 
           <Link
             href={getLocalizedPath(locale, "/services")}
-            className="body-text inline-flex shrink-0 items-center self-start border border-neutral-900 px-5 py-3 text-[11px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[13px]"
+            className="body-text inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[13px]"
           >
             {dict.cta}
           </Link>
