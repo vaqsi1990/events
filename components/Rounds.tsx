@@ -72,7 +72,7 @@ export default function Rounds({ dict }: RoundsProps) {
                       : "lg:col-span-2"
                 }`}
               >
-                <p className="body-text text-[15px] tracking-[0.08em] text-neutral-400">
+                <p className="body-text text-[15px] tracking-[0.08em] text-neutral-600">
                   - {index + 1} -
                 </p>
                 <h3 className="body-text mt-4 text-[17px] font-semibold text-neutral-900 md:text-[18px]">
