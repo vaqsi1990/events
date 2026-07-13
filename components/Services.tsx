@@ -63,7 +63,7 @@ export default function Services({ locale, dict }: ServicesProps) {
 
           <Link
             href={getLocalizedPath(locale, "/events")}
-            className="body-text text-center i inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:tracking-[0.18em] md:self-auto md:text-[18px]"
+            className="body-text mx-auto inline-flex shrink-0 items-center rounded-xl border border-neutral-900 px-5 py-3 text-center text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:tracking-[0.18em] md:mx-0 md:self-auto md:text-[18px]"
           >
             {dict.cta}
           </Link>
@@ -158,23 +158,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.55, ease: easeOut, delay: 0.08 }}
               >
-                <Link
-                  href={getLocalizedPath(locale, `/events#${active.id}`)}
-                  className="block rounded-xl border border-solid border-[#EAE3D8] bg-white px-5 py-6 transition-opacity duration-300 hover:opacity-80 sm:px-7 sm:py-8 md:px-9 md:py-10"
-                >
-                  <p className="body-text text-[16px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
-                    {active.label}
-                  </p>
-                  <h3 className="main-text mt-3 flex items-start gap-3 text-[16px] leading-snug break-words text-neutral-900 sm:mt-4  md:text-[18px] md:leading-[1.2]">
-                    <span className="min-w-0 flex-1">{active.heading}</span>
-                    <span
-                      className="body-text shrink-0 text-[16px] font-medium"
-                      aria-hidden="true"
-                    >
-                      →
-                    </span>
-                  </h3>
-                </Link>
+                
               </motion.div>
             </AnimatePresence>
           </div>

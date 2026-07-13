@@ -39,7 +39,7 @@ export default function Rounds({ dict }: RoundsProps) {
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <motion.h2
-          className="main-text pt-20 text-center text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
+          className="main-text  text-center text-[22px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase  md:text-[30px] md:leading-[1.2]"
           variants={riseVariants}
         >
           {dict.title}

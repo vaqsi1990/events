@@ -44,7 +44,7 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
       <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-2 md:gap-14 md:px-8 lg:gap-20">
         <div>
           <motion.h2
-            className="main-text text-[26px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase sm:text-[32px] md:text-[40px] md:leading-[1.2]"
+            className="main-text text-[22px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase  md:text-[30px] md:leading-[1.2]"
             variants={riseVariants}
           >
             {dict.title}

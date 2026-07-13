@@ -76,7 +76,7 @@ export default function Hero({ locale, dict }: HeroProps) {
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href={getLocalizedPath(locale, "/contact")}
-                className="body-text inline-flex items-center rounded-xl border border-white/50 px-7 py-3.5 text-[16px] font-medium tracking-[0.12em] text-white uppercase transition-colors duration-300 hover:border-white hover:bg-white hover:text-neutral-900 md:text-[18px]"
+                className="body-text inline-flex items-center rounded-xl border border-white/50 px-7 py-3.5 text-[16px] font-medium tracking-[0.12em] text-white uppercase transition-colors duration-300 hover:border-black hover:bg-black hover:text-white md:text-[18px]"
               >
                 {dict.contactCta}
               </Link>
