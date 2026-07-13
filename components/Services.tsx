@@ -41,7 +41,7 @@ export default function Services({ locale, dict }: ServicesProps) {
 
   return (
     <motion.section
-      className="bg-white py-14 md:py-24"
+      className="bg-white "
       variants={sectionVariants}
       initial="hidden"
       whileInView="show"
@@ -53,17 +53,17 @@ export default function Services({ locale, dict }: ServicesProps) {
       >
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
           <div className="min-w-0 max-w-3xl">
-            <p className="body-text text-[12px] font-medium tracking-[0.16em] text-neutral-500 uppercase sm:text-[14px] sm:tracking-[0.2em] md:text-[15px] md:tracking-[0.22em]">
+            <p className="body-text text-[15px] text-center font-medium tracking-[0.16em] text-neutral-500 uppercase sm:text-[14px] sm:tracking-[0.2em] md:text-[16px] md:tracking-[0.22em]">
               {dict.eyebrow}
             </p>
-            <h2 className="main-text mt-3 text-[22px] leading-snug font-normal break-words text-neutral-900 sm:text-[28px] md:mt-4 md:text-[30px] md:leading-[1.15]">
+            <h2 className="main-text mt-3 text-[22px] text-center leading-snug font-normal break-words text-neutral-900 sm:text-[28px] md:mt-4 md:text-[30px] md:leading-[1.15]">
               {dict.title}
             </h2>
           </div>
 
           <Link
             href={getLocalizedPath(locale, "/events")}
-            className="body-text inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[13px]"
+            className="body-text text-center mx-auto inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[16px]"
           >
             {dict.cta}
           </Link>
@@ -93,7 +93,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                       : "bg-transparent text-neutral-500 hover:text-neutral-800"
                   }`}
                 >
-                  <span className="block break-words hyphens-auto">
+                  <span className="block break-words md:text-[16px] text-[15px] hyphens-auto">
                     {item.label}
                   </span>
                 </button>
@@ -143,7 +143,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.55, ease: easeOut, delay: 0.08 }}
               >
-                <p className="body-text text-[15px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
+                <p className="body-text text-[16px] font-medium tracking-[0.16em] break-words text-neutral-500 uppercase">
                   {active.label}
                 </p>
                 <h3 className="main-text mt-3 text-[15px] leading-snug break-words text-neutral-900 sm:mt-4 sm:text-[16px] md:text-[20px] md:leading-[1.2]">
@@ -151,7 +151,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                 </h3>
                 <Link
                   href={getLocalizedPath(locale, `/events#${active.id}`)}
-                  className="body-text mt-5 inline-flex max-w-full flex-wrap items-center gap-2 text-[15px] font-medium tracking-[0.16em] text-neutral-900 uppercase transition-opacity duration-300 hover:opacity-55 sm:mt-7"
+                  className="body-text mt-5 inline-flex max-w-full flex-wrap items-center gap-2 text-[16px] font-medium tracking-[0.16em] text-neutral-900 uppercase transition-opacity duration-300 hover:opacity-55 sm:mt-7"
                 >
                   <span className="break-words">
                     {dict.explore} {active.label}

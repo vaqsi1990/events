@@ -1,4 +1,4 @@
-import PageShell from "@/components/PageShell";
+import About from "@/components/About";
 import {
   defaultLocale,
   getDictionary,
@@ -15,12 +15,8 @@ export default async function AboutPage({ params }: Props) {
   const dict = getDictionary(locale);
 
   return (
-    <PageShell title={dict.nav.about}>
-      <p className="body-text max-w-xl text-lg leading-relaxed text-neutral-900/65">
-        {locale === "ka"
-          ? "ჩვენს შესახებ გვერდი მალე დაემატება."
-          : "The about page is coming soon."}
-      </p>
-    </PageShell>
+    <main className="pt-16">
+      <About locale={locale} dict={dict.about} showCta={false} />
+    </main>
   );
 }

@@ -36,7 +36,7 @@ const dictionaries = {
       closeMenu: "მენიუს დახურვა",
     },
     hero: {
-      title: "ვქმნით მომენტებს, რომლებიც სამუდამოდ დაგამახსოვრდებათ",
+      title: "ვქმნით დაუვიწყარ ღონისძიებებს იდეიდან სრულ რეალიზაციამდე",
       contactCta: "დაგვიკავშირდით",
       eventsCta: "ღონისძიებები",
       imageAlt: "ელეგანტური ღონისძიების სივრცე",
@@ -190,27 +190,27 @@ const dictionaries = {
       title: "ღონისძიების ორგანიზების ეტაპები",
       steps: [
         {
-          title: "მიზნების განსაზღვრა",
+          title: "კონსულტაცია",
           description:
-            "ვაზუსტებთ ღონისძიების მიზნებს, აუდიტორიას და ბიუჯეტს — რომ ყველა შემდეგი ნაბიჯი სწორი მიმართულებით წავიდეს.",
+            "ვუსმენთ თქვენს მიზნებს, სურვილებს და ბიუჯეტს — რომ სწორი მიმართულება თავიდანვე განვსაზღვროთ.",
         },
         {
-          title: "კონცეფციის შემუშავება",
+          title: "კონცეფციის შექმნა",
           description:
             "ვქმნით იდეას და ვამტკიცებთ ფორმატს: ატმოსფერო, სტილი და ის დეტალები, რომლებიც გამოცდილებას გამორჩეულს ხდის.",
         },
         {
-          title: "სცენარი და თაიმინგი",
+          title: "დაგეგმვა",
           description:
-            "ვწერთ დეტალურ სცენარს და განრიგს — რომ დღე ზუსტად, მშვიდად და შთამბეჭდავად წარიმართოს.",
+            "ვაწყობთ დეტალურ გეგმას და განრიგს — რომ ყოველი ნაბიჯი ზუსტად და დროულად შესრულდეს.",
         },
         {
-          title: "მომზადება და ორგანიზება",
+          title: "მომწოდებლების კოორდინაცია",
           description:
             "ვაკოორდინირებთ ლოკაციას, მომწოდებლებს და გუნდს; ვაკონტროლებთ ვადებს და ყველა ტექნიკურ დეტალს.",
         },
         {
-          title: "ღონისძიების კონტროლი",
+          title: "ღონისძიების ჩატარება",
           description:
             "ადგილზე ვმართავთ პროცესს თავიდან ბოლომდე — რომ თქვენ მხოლოდ მომენტით და სტუმრებით ისიამოვნოთ.",
         },
@@ -222,6 +222,45 @@ const dictionaries = {
       whatsapp: "WhatsApp",
       facebook: "Facebook",
       phone: "დარეკვა",
+    },
+    about: {
+      title: "ვქმნით გამოცდილებებს, რომლებიც შთაბეჭდილებას ტოვებს",
+      paragraphs: [
+        [
+          { text: "ყველა წარმატებული ღონისძიება ხედვით იწყება. " },
+          { text: "Event", highlight: true },
+          {
+            text: "-ში იდეებს დაუვიწყარ გამოცდილებად ვაქცევთ — გააზრებული დაგეგმვით, კრეატიული მიმართულებით და უმწიკვლო შესრულებით. იქნება ეს კორპორატიული შეკრება, ",
+          },
+          { text: "კერძო ზეიმი", highlight: true },
+          {
+            text: ", კონფერენცია, გალა თუ პროდუქტის პრეზენტაცია — ყოველი დეტალი გულდასმით არის გააზრებული.",
+          },
+        ],
+        [
+          { text: "ჩვენი მიდგომა", highlight: true },
+          {
+            text: " თანამშრომლობაზეა აგებული. ვუთმობთ დროს, რომ გავიგოთ თქვენი მიზნები, აუდიტორია და ის ატმოსფერო, რომლის შექმნაც გსურთ. ასე ვქმნით ღონისძიებებს, რომლებიც ავთენტური, მიზანმიმართული და უნიკალურად თქვენია.",
+          },
+        ],
+        [
+          {
+            text: "კონცეფციის შემუშავებიდან და ლოკაციის შერჩევიდან დიზაინამდე, ლოგისტიკამდე, გართობამდე და ადგილზე კოორდინაციამდე — პროცესის ყოველ ეტაპს სიზუსტითა და პროფესიონალიზმით ვმართავთ. ჩვენი გუნდი თვლის, რომ გამორჩეული ღონისძიებები ",
+          },
+          { text: "სკრუპულოზური დაგეგმვის", highlight: true },
+          { text: ", კრეატიულობისა და გატაცების შედეგია." },
+        ],
+        [
+          {
+            text: "წლების განმავლობაში გვქონდა პატივი, ვიმუშაოთ ბიზნესებთან, ბრენდებთან და კერძო კლიენტებთან — და მიგვეწოდებინა ღონისძიებები, რომლებიც შთაგაგონებთ, აერთიანებთ და დაუვიწყარ მოგონებებს ტოვებს. ზომისა და სირთულის მიუხედავად, ყოველ პროექტს ერთნაირი ერთგულებითა და დეტალებზე ყურადღებით ვუდგებით.",
+          },
+        ],
+        [
+          { text: "ჩვენ უბრალოდ არ ვაწყობთ ღონისძიებებს — ", },
+          { text: "ვქმნით გამოცდილებებს, რომლებსაც ადამიანები იმახსოვრებენ.", highlight: true },
+        ],
+      ],
+      cta: "გაიცანით ჩვენი გუნდი",
     },
   },
   en: {
@@ -253,7 +292,7 @@ const dictionaries = {
       closeMenu: "Close menu",
     },
     hero: {
-      title: "We create moments you'll remember forever",
+      title: "We create unforgettable events from idea to full realization",
       contactCta: "Contact Us",
       eventsCta: "Events",
       imageAlt: "Elegant event venue",
@@ -407,27 +446,27 @@ const dictionaries = {
       title: "Stages of Event Organization",
       steps: [
         {
-          title: "Defining the goals",
+          title: "Consultation",
           description:
-            "We clarify the purpose, audience, and budget — so every next step moves in the right direction.",
+            "We listen to your goals, wishes, and budget — so the right direction is set from the start.",
         },
         {
-          title: "Concept development",
+          title: "Concept creation",
           description:
             "We shape the idea and approve the format: atmosphere, style, and the details that make the experience distinctive.",
         },
         {
-          title: "Script and timing",
+          title: "Planning",
           description:
-            "We write a detailed script and schedule — so the day runs precisely, calmly, and impressively.",
+            "We build a detailed plan and schedule — so every step is completed accurately and on time.",
         },
         {
-          title: "Preparation and organization",
+          title: "Vendor coordination",
           description:
             "We coordinate the venue, vendors, and team; we manage deadlines and every technical detail.",
         },
         {
-          title: "On-site control",
+          title: "Event execution",
           description:
             "We run the process on site from start to finish — so you can simply enjoy the moment and your guests.",
         },
@@ -439,6 +478,48 @@ const dictionaries = {
       whatsapp: "WhatsApp",
       facebook: "Facebook",
       phone: "Call",
+    },
+    about: {
+      title: "We create experiences that leave a lasting impression",
+      paragraphs: [
+        [
+          { text: "Every successful event begins with a vision. At " },
+          { text: "Event", highlight: true },
+          {
+            text: ", we transform ideas into memorable experiences through thoughtful planning, creative direction, and flawless execution. Whether it's a corporate gathering, ",
+          },
+          { text: "private celebration", highlight: true },
+          {
+            text: ", conference, gala, or product launch, every detail is carefully considered.",
+          },
+        ],
+        [
+          { text: "Our approach", highlight: true },
+          {
+            text: " is built on collaboration. We take the time to understand your goals, your audience, and the atmosphere you want to create. This allows us to design events that feel authentic, purposeful, and uniquely yours.",
+          },
+        ],
+        [
+          {
+            text: "From concept development and venue selection to design, logistics, entertainment, and on-site coordination, we manage every stage of the process with precision and professionalism. Our team believes that exceptional events are the result of ",
+          },
+          { text: "meticulous planning", highlight: true },
+          { text: " combined with creativity and passion." },
+        ],
+        [
+          {
+            text: "Over the years, we have had the privilege of working with businesses, brands, and private clients, delivering events that inspire, connect, and create lasting memories. No matter the size or complexity, we approach every project with the same dedication to quality and attention to detail.",
+          },
+        ],
+        [
+          { text: "We don't simply organize events—", },
+          {
+            text: "we create experiences people remember.",
+            highlight: true,
+          },
+        ],
+      ],
+      cta: "Discover who we are",
     },
   },
 } as const;

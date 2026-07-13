@@ -31,7 +31,7 @@ const riseVariants = {
 export default function Rounds({ dict }: RoundsProps) {
   return (
     <motion.section
-      className="bg-[#F3EEE8] py-14 "
+      className="bg-[#F3EEE8]  mt-20"
       variants={sectionVariants}
       initial="hidden"
       whileInView="show"
