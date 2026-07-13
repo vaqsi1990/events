@@ -84,7 +84,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {active.gallery.map((card, index) => (
                 <li key={card.id}>
-                  <article className="group relative aspect-[16/10] overflow-hidden bg-neutral-900 sm:aspect-[5/3]">
+                  <article className="group relative aspect-[16/10] overflow-hidden rounded-xl bg-neutral-900 sm:aspect-[5/3]">
                     <Image
                       src={card.image}
                       alt={card.imageAlt}
@@ -117,7 +117,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                 </h2>
               </div>
 
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-200 md:aspect-[5/4]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-200 md:aspect-[5/4]">
                 <Image
                   src={active.image}
                   alt={active.imageAlt}
