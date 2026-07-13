@@ -62,7 +62,7 @@ export default function Services({ locale, dict }: ServicesProps) {
           </div>
 
           <Link
-            href={getLocalizedPath(locale, "/services")}
+            href={getLocalizedPath(locale, "/events")}
             className="body-text inline-flex shrink-0 items-center self-start rounded-xl border border-neutral-900 px-5 py-3 text-[16px] font-medium tracking-[0.14em] text-neutral-900 uppercase transition-colors duration-300 hover:bg-neutral-900 hover:text-white sm:px-7 sm:py-3.5 sm:text-[12px] sm:tracking-[0.18em] md:self-auto md:text-[13px]"
           >
             {dict.cta}
@@ -150,7 +150,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                   {active.heading}
                 </h3>
                 <Link
-                  href={getLocalizedPath(locale, `/services#${active.id}`)}
+                  href={getLocalizedPath(locale, `/events#${active.id}`)}
                   className="body-text mt-5 inline-flex max-w-full flex-wrap items-center gap-2 text-[15px] font-medium tracking-[0.16em] text-neutral-900 uppercase transition-opacity duration-300 hover:opacity-55 sm:mt-7"
                 >
                   <span className="break-words">

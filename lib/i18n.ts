@@ -13,8 +13,6 @@ const dictionaries = {
       description: "პროფესიონალური ღონისძიებების ორგანიზება",
     },
     nav: {
-      services: "სერვისები",
-      works: "ნამუშევრები",
       about: "ჩვენს შესახებ",
       contact: "კონტაქტები",
       events: "ღონისძიებები",
@@ -40,13 +38,13 @@ const dictionaries = {
     hero: {
       title: "ვქმნით მომენტებს, რომლებიც სამუდამოდ დაგამახსოვრდებათ",
       contactCta: "დაგვიკავშირდით",
-      worksCta: "ნამუშევრები",
+      eventsCta: "ღონისძიებები",
       imageAlt: "ელეგანტური ღონისძიების სივრცე",
     },
     services: {
-      eyebrow: "სერვისები",
+      eyebrow: "ღონისძიებები",
       title: "ნება მოგვეცით, გაგაოცოთ და შთაგაგონოთ.",
-      cta: "სერვისები",
+      cta: "ღონისძიებები",
       explore: "გაიცანით",
       items: [
         {
@@ -128,8 +126,6 @@ const dictionaries = {
       description: "Professional planning and organization for unforgettable events",
     },
     nav: {
-      services: "Services",
-      works: "Works",
       about: "About Us",
       contact: "Contact",
       events: "Events",
@@ -155,13 +151,13 @@ const dictionaries = {
     hero: {
       title: "We create moments you'll remember forever",
       contactCta: "Contact Us",
-      worksCta: "Works",
+      eventsCta: "Events",
       imageAlt: "Elegant event venue",
     },
     services: {
-      eyebrow: "What We Do",
+      eyebrow: "Events",
       title: "Let us dazzle and inspire you.",
-      cta: "What We Do",
+      cta: "Events",
       explore: "Explore",
       items: [
         {

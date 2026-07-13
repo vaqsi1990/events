@@ -83,10 +83,10 @@ export default function Hero({ locale, dict }: HeroProps) {
             </motion.div>
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href={getLocalizedPath(locale, "/works")}
+                href={getLocalizedPath(locale, "/events")}
                 className="body-text inline-flex items-center rounded-xl border border-white/50 px-7 py-3.5 text-[16px] font-medium tracking-[0.12em] text-white uppercase transition-colors duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white md:text-[18px]"
               >
-                {dict.worksCta}
+                {dict.eventsCta}
               </Link>
             </motion.div>
           </motion.div>
