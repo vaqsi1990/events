@@ -34,6 +34,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   const navLinks = [
     { href: getLocalizedPath(locale, "/events"), label: dict.nav.events },
+    { href: getLocalizedPath(locale, "/portfoglio"), label: dict.nav.portfolio },
     { href: getLocalizedPath(locale, "/about"), label: dict.nav.about },
     { href: getLocalizedPath(locale, "/contact"), label: dict.nav.contact },
   ];

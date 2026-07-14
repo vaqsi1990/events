@@ -16,6 +16,7 @@ const dictionaries = {
       about: "ჩვენს შესახებ",
       contact: "კონტაქტები",
       events: "ღონისძიებები",
+      portfolio: "პორტფოლიო",
       eventTypes: [
         { id: "private", label: "კერძო ღონისძიებები", href: "/events/private" },
         {
@@ -329,6 +330,7 @@ const dictionaries = {
       about: "About Us",
       contact: "Contact",
       events: "Events",
+      portfolio: "Portfolio",
       eventTypes: [
         { id: "private", label: "Private Events", href: "/events/private" },
         {

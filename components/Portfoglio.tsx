@@ -187,7 +187,7 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
                 </div>
               </div>
               <div className="pf-card-back">
-                <span className="pf-card-index main-text" aria-hidden="true">
+                <span className="pf-card-index main-text">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="pf-card-copy">
