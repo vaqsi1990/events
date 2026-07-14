@@ -156,15 +156,35 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
               className={`pf-card pf-card-${index + 1}`}
             >
               <div className="pf-card-front">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={slide.image}
-                  alt={slide.imageAlt}
-                  draggable={false}
-                  style={{
-                    objectPosition: `${(index / Math.max(slides.length - 1, 1)) * 100}% 50%`,
-                  }}
-                />
+                <div className="pf-card-media">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={slide.image}
+                    alt={slide.imageAlt}
+                    draggable={false}
+                    style={{
+                      objectPosition: `${(index / Math.max(slides.length - 1, 1)) * 100}% 50%`,
+                    }}
+                  />
+                </div>
+
+                <span className="pf-card-badge body-text text-[13px] md:text-[14px]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className="pf-card-corner pf-card-corner-tl" aria-hidden="true" />
+                <span className="pf-card-corner pf-card-corner-br" aria-hidden="true" />
+
+                <div className="pf-card-front-meta">
+                  <h3 className="main-text pf-card-front-title text-[16px] md:text-[18px]">
+                    <span className="pf-card-front-accent">
+                      {slide.title.split(" ")[0]}
+                    </span>
+                    {slide.title.includes(" ")
+                      ? ` ${slide.title.split(" ").slice(1).join(" ")}`
+                      : null}
+                  </h3>
+                </div>
               </div>
               <div className="pf-card-back">
                 <span className="pf-card-index main-text" aria-hidden="true">
