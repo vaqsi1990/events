@@ -54,7 +54,7 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
             className="object-cover object-center"
           />
           <div
-            className="absolute inset-0 bg-black/40"
+            className="absolute inset-0 bg-black/18"
             aria-hidden="true"
           />
         </motion.div>

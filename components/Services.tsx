@@ -133,7 +133,7 @@ export default function Services({ locale, dict }: ServicesProps) {
                 </AnimatePresence>
 
                 <div
-                  className="pointer-events-none absolute inset-0 bg-black/35"
+                  className="pointer-events-none absolute inset-0 bg-black/15"
                   aria-hidden="true"
                 />
               </div>

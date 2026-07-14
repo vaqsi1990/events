@@ -94,7 +94,7 @@ export default function EventsTabs({ items, ariaLabel }: EventsTabsProps) {
                       priority={index === 0}
                     />
                     <div
-                      className="absolute inset-0 bg-black/55 transition-colors duration-500 group-hover:bg-black/45"
+                      className="absolute inset-0 bg-black/28 transition-colors duration-500 group-hover:bg-black/18"
                       aria-hidden="true"
                     />
                     <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
