@@ -278,6 +278,10 @@ body {
   transform-style: preserve-3d;
   transform-origin: center top;
   will-change: transform;
+  transition:
+    translate 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    scale 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    rotate 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pf-card-front,
@@ -288,6 +292,12 @@ body {
   border-radius: inherit;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.pf-card-front {
+  z-index: 1;
+  background: #2a2420;
+  transform: translateZ(1px);
 }
 
 .pf-card-front::after {
@@ -310,21 +320,72 @@ body {
 .pf-card-back {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  padding: 1.25rem 1.1rem 1.4rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.75rem 1.15rem 1.5rem;
   color: #f3eee8;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
+  background: rgba(22, 18, 15, 0.72);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.pf-card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
 }
 
 .pf-card-index {
   position: absolute;
-  top: 1rem;
-  left: 1.1rem;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.45;
+  top: 3.25rem;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  user-select: none;
+}
+
+.pf-card-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  margin-top: 10.25rem;
+  text-align: center;
+}
+
+.pf-card-gold-line {
+  display: block;
+  width: min(100%, 4.5rem);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #a08968 18%,
+    #e4d0a2 50%,
+    #a08968 82%,
+    transparent 100%
+  );
 }
 
 .pf-card-title {
@@ -333,13 +394,25 @@ body {
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .pf-card-desc {
   margin: 0;
+  max-width: 18em;
   font-size: clamp(0.78rem, 1vw, 0.92rem);
   line-height: 1.55;
+  text-align: center;
   opacity: 0.78;
+}
+
+@media (min-width: 1000px) and (hover: hover) {
+  .pf-card:hover {
+    z-index: 3;
+    translate: 0 -10px;
+    scale: 1.03;
+    rotate: y 5deg;
+  }
 }
 
 .pf-cta {
@@ -372,13 +445,19 @@ body {
     display: flex;
     flex-direction: column;
     aspect-ratio: auto;
+    height: auto;
     border-radius: 0 !important;
     transform: none !important;
+    translate: none;
+    scale: none;
+    rotate: none;
   }
 
   .pf-card-front {
+    position: relative;
     aspect-ratio: 4 / 3;
     border-radius: 16px;
+    transform: none !important;
   }
 
   .pf-card-front,
@@ -391,13 +470,31 @@ body {
 
   .pf-card-back {
     margin-top: 0.85rem;
-    padding: 0;
+    padding: 1rem 1rem 1.1rem;
     color: #171717;
-    background: transparent !important;
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
   }
 
   .pf-card-index {
     display: none;
+  }
+
+  .pf-card-gold-line {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #a08968 18%,
+      #c4a574 50%,
+      #a08968 82%,
+      transparent 100%
+    );
   }
 
   .pf-card-title {

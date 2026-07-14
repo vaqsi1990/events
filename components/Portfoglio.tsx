@@ -13,8 +13,6 @@ type PortfoglioProps = {
   dict: Dictionary["portfolio"];
 };
 
-const CARD_BACK_COLORS = ["#1a1816", "#2a2420", "#171513", "#3a322c"] as const;
-
 export default function Portfoglio({ locale, dict }: PortfoglioProps) {
   const rootRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -168,15 +166,15 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
                   }}
                 />
               </div>
-              <div
-                className="pf-card-back"
-                style={{ backgroundColor: CARD_BACK_COLORS[index] }}
-              >
-                <span className="pf-card-index body-text">
+              <div className="pf-card-back">
+                <span className="pf-card-index main-text" aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="main-text pf-card-title">{slide.title}</h3>
-                <p className="body-text pf-card-desc">{slide.description}</p>
+                <div className="pf-card-copy">
+                  <span className="pf-card-gold-line" aria-hidden="true" />
+                  <h3 className="main-text pf-card-title">{slide.title}</h3>
+                  <p className="body-text pf-card-desc">{slide.description}</p>
+                </div>
               </div>
             </div>
           ))}
