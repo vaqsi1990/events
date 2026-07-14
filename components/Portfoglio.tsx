@@ -61,7 +61,7 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
           scrollTrigger: {
             trigger: sticky,
             start: "top top",
-            end: "+=1100",
+            end: "+=720",
             scrub: 0.4,
             pin: sticky,
             pinSpacing: true,

@@ -20,7 +20,7 @@ body {
 .page-sections {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
 }
 
 .main-text {
@@ -243,10 +243,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2.5rem;
   min-height: 100svh;
-  padding: 3rem 1.25rem;
+  padding: 5rem 1.25rem 3rem;
   overflow: clip;
   box-sizing: border-box;
 }
@@ -513,7 +513,7 @@ body {
 @media (max-width: 999px) {
   .pf-sticky {
     min-height: auto;
-    padding: 3rem 1.25rem;
+    padding: 5rem 1.25rem 3rem;
     gap: 2.5rem;
   }
 

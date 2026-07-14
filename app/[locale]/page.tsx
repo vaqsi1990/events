@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Rounds from "@/components/Rounds";
 import About from "@/components/About";
 import Portfoglio from "@/components/Portfoglio";
+import Partners from "@/components/Partners";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -26,10 +27,12 @@ export default async function Home({ params }: Props) {
           <Services locale={locale} dict={dict.services} />
         </Reveal>
         <Portfoglio locale={locale} dict={dict.portfolio} />
+        <Reveal delay={0.06}>
+          <Partners dict={dict.partners} />
+        </Reveal>
         <Reveal delay={0.08}>
           <Rounds dict={dict.rounds} />
         </Reveal>
-
       </div>
     </main>
   );

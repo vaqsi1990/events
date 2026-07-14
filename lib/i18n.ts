@@ -236,6 +236,18 @@ const dictionaries = {
         },
       ],
     },
+    partners: {
+      eyebrow: "პარტნიორები",
+      title: "ბრენდები, რომლებთანაც ვმუშაობთ",
+      logos: [
+        { alt: "Lierac Paris" },
+        { alt: "Gori Mall" },
+        { alt: "ჯაოკენი" },
+        { alt: "Nuxe Paris" },
+        { alt: "ფარმადეპო" },
+        { alt: "Biographi Living" },
+      ],
+    },
     floatingContact: {
       open: "კონტაქტის გახსნა",
       close: "დახურვა",
@@ -529,6 +541,18 @@ const dictionaries = {
           description:
             "We run the process on site from start to finish — so you can simply enjoy the moment and your guests.",
         },
+      ],
+    },
+    partners: {
+      eyebrow: "Partners",
+      title: "Brands we work with",
+      logos: [
+        { alt: "Lierac Paris" },
+        { alt: "Gori Mall" },
+        { alt: "Jaokeni" },
+        { alt: "Nuxe Paris" },
+        { alt: "Pharmadepot" },
+        { alt: "Biographi Living" },
       ],
     },
     floatingContact: {
