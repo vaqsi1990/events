@@ -17,7 +17,7 @@ type PortfolioShowcaseProps = {
 
 type Slide = Dictionary["portfolio"]["slides"][number];
 
-/** Fan offsets relative to stage center (percent-based for responsiveness). */
+/** 0 = previous (left), 1 = current (front), 2 = next (right). */
 const LAYER_LAYOUT = [
   { xPercent: -18, yPercent: 10, rotation: -11, scale: 0.78, zIndex: 1 },
   { xPercent: 0, yPercent: 0, rotation: 0, scale: 1, zIndex: 3 },
@@ -47,8 +47,23 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
     let isAnimating = false;
     let activeTextTween: gsap.core.Timeline | null = null;
     const textPanels: HTMLDivElement[] = [];
+    const layers: HTMLDivElement[] = [];
+    const images: HTMLImageElement[] = [];
 
-    const nestLayer = (slide: Slide, layout: (typeof LAYER_LAYOUT)[number]) => {
+    const wrap = (index: number) =>
+      (index + slides.length) % slides.length;
+
+    /** Left = previous, center = current, right = next. */
+    const stackSlides = (index: number) => [
+      slides[wrap(index - 1)],
+      slides[wrap(index)],
+      slides[wrap(index + 1)],
+    ] as const;
+
+    const nestLayer = (
+      slide: Slide,
+      layout: (typeof LAYER_LAYOUT)[number],
+    ) => {
       const layer = document.createElement("div");
       layer.className = "ps-layer";
 
@@ -74,16 +89,65 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
         autoAlpha: 1,
       });
 
+      layers.push(layer);
+      images.push(img);
       return layer;
     };
 
-    const nestCluster = (slide: Slide) => {
+    const nestStack = (index: number) => {
       const cluster = document.createElement("div");
       cluster.className = "ps-cluster";
-      LAYER_LAYOUT.forEach((layout) => {
-        cluster.appendChild(nestLayer(slide, layout));
+      const trio = stackSlides(index);
+      LAYER_LAYOUT.forEach((layout, i) => {
+        cluster.appendChild(nestLayer(trio[i], layout));
       });
       return cluster;
+    };
+
+    const setLayout = (
+      layer: HTMLElement,
+      layout: (typeof LAYER_LAYOUT)[number],
+      extras: gsap.TweenVars = {},
+    ) => {
+      gsap.set(layer, {
+        xPercent: -50 + layout.xPercent,
+        yPercent: -50 + layout.yPercent,
+        rotation: layout.rotation,
+        scale: layout.scale,
+        zIndex: layout.zIndex,
+        autoAlpha: 1,
+        ...extras,
+      });
+    };
+
+    const moveToLayout = (
+      layer: HTMLElement,
+      layout: (typeof LAYER_LAYOUT)[number],
+      duration = 0.85,
+    ) =>
+      gsap.to(layer, {
+        xPercent: -50 + layout.xPercent,
+        yPercent: -50 + layout.yPercent,
+        rotation: layout.rotation,
+        scale: layout.scale,
+        zIndex: layout.zIndex,
+        autoAlpha: 1,
+        duration,
+        ease: "hop",
+      });
+
+    const reorderStack = (nextOrder: [number, number, number]) => {
+      const nextLayers = nextOrder.map((i) => layers[i]);
+      const nextImages = nextOrder.map((i) => images[i]);
+      layers.splice(0, layers.length, ...nextLayers);
+      images.splice(0, images.length, ...nextImages);
+
+      const cluster = clusterEl.querySelector(".ps-cluster");
+      if (cluster) {
+        nextLayers.forEach((layer) => cluster.appendChild(layer));
+      }
+
+      LAYER_LAYOUT.forEach((layout, i) => setLayout(layers[i], layout));
     };
 
     const nestTextPanels = () => {
@@ -165,63 +229,121 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
     };
 
     const animateTransition = (direction: "left" | "right") => {
-      if (isAnimating) return;
+      if (isAnimating || layers.length < 3) return;
       isAnimating = true;
 
-      const outgoing = clusterEl.querySelector(".ps-cluster") as HTMLElement | null;
-      const incoming = nestCluster(slides[currentIndex]);
-      const exitX = direction === "right" ? -55 : 55;
-      const enterX = direction === "right" ? 55 : -55;
-      const spin = direction === "right" ? 18 : -18;
-
-      gsap.set(incoming.querySelectorAll(".ps-layer"), {
-        xPercent: (i) => -50 + LAYER_LAYOUT[i].xPercent + enterX,
-        yPercent: (i) => -50 + LAYER_LAYOUT[i].yPercent + 18,
-        rotation: (i) => LAYER_LAYOUT[i].rotation + spin,
-        scale: (i) => LAYER_LAYOUT[i].scale * 0.75,
-        autoAlpha: 0,
-      });
-
-      clusterEl.appendChild(incoming);
+      const left = layers[0];
+      const center = layers[1];
+      const right = layers[2];
+      const layoutL = LAYER_LAYOUT[0];
+      const layoutC = LAYER_LAYOUT[1];
+      const layoutR = LAYER_LAYOUT[2];
 
       const tl = gsap.timeline({
         onComplete: () => {
-          outgoing?.remove();
           isAnimating = false;
         },
       });
 
-      if (outgoing) {
+      if (direction === "right") {
+        const incoming = slides[wrap(currentIndex + 1)];
+
+        tl.add(moveToLayout(center, layoutL), 0);
+        tl.add(moveToLayout(right, layoutC), 0);
+
         tl.to(
-          outgoing.querySelectorAll(".ps-layer"),
+          left,
           {
-            xPercent: (i) => -50 + LAYER_LAYOUT[i].xPercent + exitX,
-            yPercent: (i) => -50 + LAYER_LAYOUT[i].yPercent - 14,
-            rotation: (i) => LAYER_LAYOUT[i].rotation - spin,
-            scale: (i) => LAYER_LAYOUT[i].scale * 0.7,
+            xPercent: -50 + layoutL.xPercent - 55,
+            yPercent: -50 + layoutL.yPercent + 8,
+            rotation: layoutL.rotation - 16,
+            scale: layoutL.scale * 0.72,
             autoAlpha: 0,
-            duration: 0.85,
-            stagger: 0.04,
-            ease: "hop",
+            duration: 0.5,
+            ease: "power2.in",
           },
           0,
         );
-      }
 
-      tl.to(
-        incoming.querySelectorAll(".ps-layer"),
-        {
-          xPercent: (i) => -50 + LAYER_LAYOUT[i].xPercent,
-          yPercent: (i) => -50 + LAYER_LAYOUT[i].yPercent,
-          rotation: (i) => LAYER_LAYOUT[i].rotation,
-          scale: (i) => LAYER_LAYOUT[i].scale,
-          autoAlpha: 1,
-          duration: 0.95,
-          stagger: 0.05,
-          ease: "hop",
-        },
-        0.08,
-      );
+        tl.set(left, {
+          xPercent: -50 + layoutR.xPercent + 55,
+          yPercent: -50 + layoutR.yPercent - 6,
+          rotation: layoutR.rotation + 16,
+          scale: layoutR.scale * 0.78,
+          autoAlpha: 0,
+          zIndex: layoutR.zIndex,
+        });
+
+        tl.add(() => {
+          images[0].src = incoming.image;
+          images[0].alt = incoming.imageAlt;
+        });
+
+        tl.to(
+          left,
+          {
+            xPercent: -50 + layoutR.xPercent,
+            yPercent: -50 + layoutR.yPercent,
+            rotation: layoutR.rotation,
+            scale: layoutR.scale,
+            autoAlpha: 1,
+            duration: 0.7,
+            ease: "hop",
+          },
+          "-=0.12",
+        );
+
+        tl.add(() => reorderStack([1, 2, 0]));
+      } else {
+        const incoming = slides[wrap(currentIndex - 1)];
+
+        tl.add(moveToLayout(center, layoutR), 0);
+        tl.add(moveToLayout(left, layoutC), 0);
+
+        tl.to(
+          right,
+          {
+            xPercent: -50 + layoutR.xPercent + 55,
+            yPercent: -50 + layoutR.yPercent - 8,
+            rotation: layoutR.rotation + 16,
+            scale: layoutR.scale * 0.72,
+            autoAlpha: 0,
+            duration: 0.5,
+            ease: "power2.in",
+          },
+          0,
+        );
+
+        tl.set(right, {
+          xPercent: -50 + layoutL.xPercent - 55,
+          yPercent: -50 + layoutL.yPercent + 6,
+          rotation: layoutL.rotation - 16,
+          scale: layoutL.scale * 0.78,
+          autoAlpha: 0,
+          zIndex: layoutL.zIndex,
+        });
+
+        tl.add(() => {
+          images[2].src = incoming.image;
+          images[2].alt = incoming.imageAlt;
+        });
+
+        tl.to(
+          right,
+          {
+            xPercent: -50 + layoutL.xPercent,
+            yPercent: -50 + layoutL.yPercent,
+            rotation: layoutL.rotation,
+            scale: layoutL.scale,
+            autoAlpha: 1,
+            duration: 0.7,
+            ease: "hop",
+          },
+          "-=0.12",
+        );
+
+        tl.add(() => reorderStack([2, 0, 1]));
+      }
 
       updateText(currentIndex);
       updateCounter(currentIndex);
@@ -229,13 +351,13 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
 
     const goNext = () => {
       if (isAnimating) return;
-      currentIndex = (currentIndex + 1) % slides.length;
+      currentIndex = wrap(currentIndex + 1);
       animateTransition("right");
     };
 
     const goPrev = () => {
       if (isAnimating) return;
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      currentIndex = wrap(currentIndex - 1);
       animateTransition("left");
     };
 
@@ -244,7 +366,7 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
       if (event.key === "ArrowLeft") goPrev();
     };
 
-    clusterEl.appendChild(nestCluster(slides[0]));
+    clusterEl.appendChild(nestStack(0));
     nestTextPanels();
     updateCounter(0);
 
@@ -270,8 +392,6 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
       aria-label={dict.pageTitle}
     >
       <div className="ps-header">
-        
-        
         <h1 className="main-text ps-page-title">{dict.pageTitle}</h1>
         <p className="body-text ps-page-intro">{dict.pageIntro}</p>
       </div>
@@ -279,7 +399,6 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
       <div className="ps-stage">
         <div className="ps-text-wrap">
           <div ref={textRef} className="ps-text-stack" aria-live="polite" />
-         
         </div>
 
         <div className="ps-visual">
