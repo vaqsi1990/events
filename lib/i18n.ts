@@ -286,9 +286,11 @@ const dictionaries = {
       eyebrow: "პორტფოლიო",
       title: "პროექტები, რომლებიც შთაგაგონებთ",
       viewAll: "ყველას ნახვა",
-      clickHint: "გაასქროლე ან გადაფურცლე სლაიდების შესაცვლელად",
+      clickHint: "ისრებით შეცვალეთ სლაიდები",
+      prevAria: "წინა სლაიდი",
+      nextAria: "შემდეგი სლაიდი",
       pageTitle: "პორტფოლიო",
-      pageIntro: "შერჩეული პროექტები, რომლებიც ჩვენს სტილს და გამოცდილებას გამოხატავს.",
+      pageIntro: "პროექტები, რომლებიც ჩვენს სტილს და გამოცდილებას გამოხატავს",
       slides: [
         {
           title: "კერძო ზეიმი",
@@ -600,9 +602,11 @@ const dictionaries = {
       eyebrow: "Portfolio",
       title: "Projects that inspire",
       viewAll: "View all",
-      clickHint: "Scroll or swipe to change slides",
+      clickHint: "Use the arrows to change slides",
+      prevAria: "Previous slide",
+      nextAria: "Next slide",
       pageTitle: "Portfolio",
-      pageIntro: "Selected projects that reflect our style and experience.",
+      pageIntro: "Projects that reflect our style and experience",
       slides: [
         {
           title: "Private celebration",
