@@ -86,7 +86,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.88;
+  opacity: 0.94;
 }
 
 .hero-image {
@@ -111,9 +111,9 @@ body {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 10, 0.55) 0%,
-    rgba(10, 10, 10, 0.35) 40%,
-    rgba(10, 10, 10, 0.72) 100%
+    rgba(10, 10, 10, 0.38) 0%,
+    rgba(10, 10, 10, 0.22) 40%,
+    rgba(10, 10, 10, 0.52) 100%
   );
 }
 

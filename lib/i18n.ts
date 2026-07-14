@@ -45,29 +45,20 @@ const dictionaries = {
       nextAria: "შემდეგი სლაიდი",
       slides: [
         {
-          title:
-            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
-          image: "/hero.jpg",
-          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+          title: "გუნდური ენერგია\nდაუვიწყარ გამოცდილებად",
+          image: "/1.jpg",
+          imageAlt: "კორპორატიული გუნდური ღონისძიება",
         },
         {
-          title:
-            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
-          image: "/hero.jpg",
-          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+          title: "ავთენტური შეხვედრები\nდა ცოცხალი ატმოსფერო",
+          image: "/2.jpg",
+          imageAlt: "საზოგადოებრივი ღონისძიების ატმოსფერო",
         },
         {
-          title:
-            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
-          image: "/hero.jpg",
-          imageAlt: "ელეგანტური ღონისძიების სივრცე",
-        },
-        {
-          title:
-            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
-          image: "/hero.jpg",
-          imageAlt: "ელეგანტური ღონისძიების სივრცე",
-        },
+          title: "კერძო ზეიმები,\nსადაც ყოველი დეტალი გულშია",
+          image: "/3.jpg",
+          imageAlt: "კერძო სადილის ზეიმი",
+        }
       ],
     },
     services: {
@@ -80,7 +71,7 @@ const dictionaries = {
           id: "private",
           label: "კერძო ღონისძიებები",
           heading: "პირადი მომენტები, რომლებიც სამუდამოდ რჩება.",
-          image: "/hero.jpg",
+          image: "/private.jpg",
           imageAlt: "კერძო ღონისძიება",
           gallery: [
             {
@@ -107,7 +98,7 @@ const dictionaries = {
           id: "corporate",
           label: "კორპორატიული ღონისძიებები",
           heading: "ბიზნესი, რომელიც შთაბეჭდილებას ტოვებს.",
-          image: "/hero.jpg",
+          image: "/corporate.jpg",
           imageAlt: "კორპორატიული ღონისძიება",
           gallery: [
             {
@@ -146,7 +137,7 @@ const dictionaries = {
           id: "entertainment",
           label: "გასართობი ღონისძიებები",
           heading: "ატმოსფერო, რომელიც ყველას აერთიანებს.",
-          image: "/hero.jpg",
+          image: "/entertainment.jpg",
           imageAlt: "გასართობი ღონისძიება",
           gallery: [
             {
@@ -179,7 +170,7 @@ const dictionaries = {
           id: "brand",
           label: "ბრენდული ღონისძიებები",
           heading: "ბრენდი, რომელიც ცოცხლდება სივრცეში.",
-          image: "/hero.jpg",
+          image: "/branded.jpg",
           imageAlt: "ბრენდული ღონისძიება",
           gallery: [
             {
@@ -281,31 +272,31 @@ const dictionaries = {
       pageIntro: "პროექტები, რომლებიც ჩვენს სტილს და გამოცდილებას გამოხატავს",
       slides: [
         {
-          title: "კერძო ზეიმი",
+          title: "კერძო ღონისძიება",
           description:
             "მყუდრო ატმოსფერო, გააზრებული დეტალები და მომენტები, რომლებიც სამუდამოდ რჩება.",
-          image: "/hero.jpg",
+          image: "/only.jpg",
           imageAlt: "კერძო ღონისძიება",
         },
         {
           title: "კორპორატიული საღამო",
           description:
             "ბიზნეს შეკრება, რომელიც შთაბეჭდილებას ტოვებს — ზუსტი ორგანიზებით და ძლიერი ვიზუალით.",
-          image: "/hero.jpg",
+          image: "/corp.jpg",
           imageAlt: "კორპორატიული ღონისძიება",
         },
         {
           title: "ბრენდის პრეზენტაცია",
           description:
             "ბრენდი, რომელიც სივრცეში ცოცხლდება — სტარტი, გაშვება და გამორჩეული შთაბეჭდილება.",
-          image: "/hero.jpg",
+          image: "/brands.jpg",
           imageAlt: "ბრენდული ღონისძიება",
         },
         {
           title: "გასართობი საღამო",
           description:
             "ენერგია, მუსიკა და ატმოსფერო, რომელიც სტუმრებს ერთიან გამოცდილებად აერთიანებს.",
-          image: "/hero.jpg",
+          image: "/dances.jpg",
           imageAlt: "გასართობი ღონისძიება",
         },
       ],
@@ -349,29 +340,20 @@ const dictionaries = {
       nextAria: "Next slide",
       slides: [
         {
-          title:
-            "We create unforgettable events\nfrom idea to full realization",
-          image: "/hero.jpg",
-          imageAlt: "Elegant event venue",
+          title: "Team energy turned into\nunforgettable experiences",
+          image: "/1.jpg",
+          imageAlt: "Corporate team-building event",
         },
         {
-          title:
-            "We create unforgettable events\nfrom idea to full realization",
-          image: "/hero.jpg",
-          imageAlt: "Elegant event venue",
+          title: "Authentic gatherings\nwith vibrant atmosphere",
+          image: "/2.jpg",
+          imageAlt: "Social networking event atmosphere",
         },
         {
-          title:
-            "We create unforgettable events\nfrom idea to full realization",
-          image: "/hero.jpg",
-          imageAlt: "Elegant event venue",
-        },
-        {
-          title:
-            "We create unforgettable events\nfrom idea to full realization",
-          image: "/hero.jpg",
-          imageAlt: "Elegant event venue",
-        },
+          title: "Private celebrations\nwhere every detail matters",
+          image: "/3.jpg",
+          imageAlt: "Private dinner celebration",
+        }
       ],
     },
     services: {
@@ -384,7 +366,7 @@ const dictionaries = {
           id: "private",
           label: "Private Events",
           heading: "Personal moments that stay forever.",
-          image: "/hero.jpg",
+          image: "/private.jpg",
           imageAlt: "Private event",
           gallery: [
             {
@@ -411,7 +393,7 @@ const dictionaries = {
           id: "corporate",
           label: "Corporate Events",
           heading: "Business that leaves an impression.",
-          image: "/hero.jpg",
+          image: "/corporate.jpg",
           imageAlt: "Corporate event",
           gallery: [
             {
@@ -450,7 +432,7 @@ const dictionaries = {
           id: "entertainment",
           label: "Entertainment Events",
           heading: "An atmosphere that brings everyone together.",
-          image: "/hero.jpg",
+          image: "/entertainment.jpg",
           imageAlt: "Entertainment event",
           gallery: [
             {
@@ -483,7 +465,7 @@ const dictionaries = {
           id: "brand",
           label: "Brand Events",
           heading: "A brand that comes alive in space.",
-          image: "/hero.jpg",
+          image: "/branded.jpg",
           imageAlt: "Brand event",
           gallery: [
             {
@@ -585,31 +567,31 @@ const dictionaries = {
       pageIntro: "Projects that reflect our style and experience",
       slides: [
         {
-          title: "Private celebration",
+          title: "Private event",
           description:
             "A serene atmosphere, thoughtful details, and moments that stay forever.",
-          image: "/hero.jpg",
+          image: "/only.jpg",
           imageAlt: "Private event",
         },
         {
           title: "Corporate evening",
           description:
             "A business gathering that leaves an impression — precise organization and strong visuals.",
-          image: "/hero.jpg",
+          image: "/corp.jpg",
           imageAlt: "Corporate event",
         },
         {
           title: "Brand presentation",
           description:
             "A brand that comes alive in space — launch energy and a distinctive presence.",
-          image: "/hero.jpg",
+          image: "/brands.jpg",
           imageAlt: "Brand event",
         },
         {
           title: "Entertainment night",
           description:
             "Energy, music, and an atmosphere that turns guests into one shared experience.",
-          image: "/hero.jpg",
+          image: "/dances.jpg",
           imageAlt: "Entertainment event",
         },
       ],
