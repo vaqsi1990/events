@@ -270,7 +270,8 @@ export default function PortfolioShowcase({ dict }: PortfolioShowcaseProps) {
       aria-label={dict.pageTitle}
     >
       <div className="ps-header">
-        <p className="body-text ps-eyebrow">{dict.eyebrow}</p>
+        
+        
         <h1 className="main-text ps-page-title">{dict.pageTitle}</h1>
         <p className="body-text ps-page-intro">{dict.pageIntro}</p>
       </div>
