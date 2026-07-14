@@ -25,13 +25,11 @@ export default async function Home({ params }: Props) {
         <Reveal>
           <Services locale={locale} dict={dict.services} />
         </Reveal>
-        <Reveal>
-          <Portfoglio locale={locale} dict={dict.portfolio} />
-        </Reveal>
+        <Portfoglio locale={locale} dict={dict.portfolio} />
         <Reveal delay={0.08}>
           <Rounds dict={dict.rounds} />
         </Reveal>
-        
+
       </div>
     </main>
   );
