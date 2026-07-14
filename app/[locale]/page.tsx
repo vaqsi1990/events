@@ -4,6 +4,7 @@ import { getDictionary, isLocale, defaultLocale } from "@/lib/i18n";
 import Services from "@/components/Services";
 import Rounds from "@/components/Rounds";
 import About from "@/components/About";
+import Portfoglio from "@/components/Portfoglio";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,6 +24,9 @@ export default async function Home({ params }: Props) {
         </Reveal>
         <Reveal>
           <Services locale={locale} dict={dict.services} />
+        </Reveal>
+        <Reveal>
+          <Portfoglio locale={locale} dict={dict.portfolio} />
         </Reveal>
         <Reveal delay={0.08}>
           <Rounds dict={dict.rounds} />

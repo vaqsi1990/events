@@ -40,6 +40,34 @@ const dictionaries = {
       contactCta: "დაგვიკავშირდით",
       eventsCta: "ღონისძიებები",
       imageAlt: "ელეგანტური ღონისძიების სივრცე",
+      prevAria: "წინა სლაიდი",
+      nextAria: "შემდეგი სლაიდი",
+      slides: [
+        {
+          title:
+            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
+          image: "/hero.jpg",
+          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+        },
+        {
+          title:
+            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
+          image: "/hero.jpg",
+          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+        },
+        {
+          title:
+            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
+          image: "/hero.jpg",
+          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+        },
+        {
+          title:
+            "ვქმნით დაუვიწყარ ღონისძიებებს\nიდეიდან სრულ რეალიზაციამდე",
+          image: "/hero.jpg",
+          imageAlt: "ელეგანტური ღონისძიების სივრცე",
+        },
+      ],
     },
     services: {
       eyebrow: "ღონისძიებები",
@@ -253,6 +281,44 @@ const dictionaries = {
       ],
       cta: "გაიცანით ჩვენი გუნდი",
     },
+    portfolio: {
+      eyebrow: "პორტფოლიო",
+      title: "შერჩეული პროექტები, რომლებიც შთაგაგონებთ.",
+      viewAll: "ყველას ნახვა",
+      clickHint: "გაასქროლე ან გადაფურცლე სლაიდების შესაცვლელად",
+      pageTitle: "პორტფოლიო",
+      pageIntro: "შერჩეული პროექტები, რომლებიც ჩვენს სტილს და გამოცდილებას გამოხატავს.",
+      slides: [
+        {
+          title: "კერძო ზეიმი",
+          description:
+            "ინტიმური ატმოსფერო, გააზრებული დეტალები და მომენტები, რომლებიც სამუდამოდ რჩება.",
+          image: "/hero.jpg",
+          imageAlt: "კერძო ღონისძიება",
+        },
+        {
+          title: "კორპორატიული საღამო",
+          description:
+            "ბიზნეს შეკრება, რომელიც შთაბეჭდილებას ტოვებს — ზუსტი ორგანიზებით და ძლიერი ვიზუალით.",
+          image: "/hero.jpg",
+          imageAlt: "კორპორატიული ღონისძიება",
+        },
+        {
+          title: "ბრენდის პრეზენტაცია",
+          description:
+            "ბრენდი, რომელიც სივრცეში ცოცხლდება — სტარტი, გაშვება და გამორჩეული შთაბეჭდილება.",
+          image: "/hero.jpg",
+          imageAlt: "ბრენდული ღონისძიება",
+        },
+        {
+          title: "გასართობი საღამო",
+          description:
+            "ენერგია, მუსიკა და ატმოსფერო, რომელიც სტუმრებს ერთიან გამოცდილებად აერთიანებს.",
+          image: "/hero.jpg",
+          imageAlt: "გასართობი ღონისძიება",
+        },
+      ],
+    },
   },
   en: {
     meta: {
@@ -287,6 +353,34 @@ const dictionaries = {
       contactCta: "Contact Us",
       eventsCta: "Events",
       imageAlt: "Elegant event venue",
+      prevAria: "Previous slide",
+      nextAria: "Next slide",
+      slides: [
+        {
+          title:
+            "We create unforgettable events\nfrom idea to full realization",
+          image: "/hero.jpg",
+          imageAlt: "Elegant event venue",
+        },
+        {
+          title:
+            "We create unforgettable events\nfrom idea to full realization",
+          image: "/hero.jpg",
+          imageAlt: "Elegant event venue",
+        },
+        {
+          title:
+            "We create unforgettable events\nfrom idea to full realization",
+          image: "/hero.jpg",
+          imageAlt: "Elegant event venue",
+        },
+        {
+          title:
+            "We create unforgettable events\nfrom idea to full realization",
+          image: "/hero.jpg",
+          imageAlt: "Elegant event venue",
+        },
+      ],
     },
     services: {
       eyebrow: "Events",
@@ -499,6 +593,44 @@ const dictionaries = {
         ],
       ],
       cta: "Discover who we are",
+    },
+    portfolio: {
+      eyebrow: "Portfolio",
+      title: "Selected projects that inspire.",
+      viewAll: "View all",
+      clickHint: "Scroll or swipe to change slides",
+      pageTitle: "Portfolio",
+      pageIntro: "Selected projects that reflect our style and experience.",
+      slides: [
+        {
+          title: "Private celebration",
+          description:
+            "An intimate atmosphere, thoughtful details, and moments that stay forever.",
+          image: "/hero.jpg",
+          imageAlt: "Private event",
+        },
+        {
+          title: "Corporate evening",
+          description:
+            "A business gathering that leaves an impression — precise organization and strong visuals.",
+          image: "/hero.jpg",
+          imageAlt: "Corporate event",
+        },
+        {
+          title: "Brand presentation",
+          description:
+            "A brand that comes alive in space — launch energy and a distinctive presence.",
+          image: "/hero.jpg",
+          imageAlt: "Brand event",
+        },
+        {
+          title: "Entertainment night",
+          description:
+            "Energy, music, and an atmosphere that turns guests into one shared experience.",
+          image: "/hero.jpg",
+          imageAlt: "Entertainment event",
+        },
+      ],
     },
   },
 } as const;
