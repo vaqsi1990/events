@@ -18,165 +18,118 @@ const CARD_BACK_COLORS = ["#1a1816", "#2a2420", "#171513", "#3a322c"] as const;
 export default function Portfoglio({ locale, dict }: PortfoglioProps) {
   const rootRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const slides = dict.slides.slice(0, 4);
 
   useEffect(() => {
     const sticky = stickyRef.current;
-    const header = headerRef.current;
     const cardContainer = containerRef.current;
     const root = rootRef.current;
 
-    if (!sticky || !header || !cardContainer || !root) return;
+    if (!sticky || !cardContainer || !root) return;
 
     const cards = gsap.utils.toArray<HTMLElement>(
       root.querySelectorAll(".pf-card"),
     );
     if (cards.length === 0) return;
 
-    let isGapDone = false;
-    let isFlipDone = false;
-
     const ctx = gsap.context(() => {
-      gsap.set(cardContainer, { y: 40, force3D: true });
-      gsap.set(header, { y: 40, opacity: 0 });
-
       const mm = gsap.matchMedia();
 
       mm.add("(max-width: 999px)", () => {
-        gsap.set([header, cardContainer, ...cards], { clearProps: "all" });
-        cards.forEach((card) => {
-          gsap.set(card, { rotationY: 0, y: 0, rotateZ: 0 });
-        });
+        gsap.set([cardContainer, ...cards], { clearProps: "all" });
+        gsap.set(cards, { rotationY: 0, y: 0, rotateZ: 0 });
       });
 
       mm.add("(min-width: 1000px)", () => {
-        isGapDone = false;
-        isFlipDone = false;
+        gsap.set(cardContainer, {
+          width: "72%",
+          gap: "20px",
+          force3D: true,
+        });
+        gsap.set(cards, {
+          rotationY: 0,
+          y: 0,
+          rotateZ: 0,
+          force3D: true,
+        });
 
-        gsap.set(cardContainer, { y: 40, width: "72%", gap: "0px" });
-        gsap.set(header, { y: 40, opacity: 0 });
-        gsap.set(cards, { rotationY: 0, y: 0, rotateZ: 0 });
+        const first = cards[0];
+        const last = cards[cards.length - 1];
 
-        const radiusTargets = gsap.utils.toArray<HTMLElement>(
-          root.querySelectorAll(".pf-card, .pf-card-front, .pf-card-back"),
-        );
-        const originalRadii = radiusTargets.map(
-          (el) => getComputedStyle(el).borderRadius,
-        );
-
-        const roundCorners = () => {
-          gsap.to(radiusTargets, {
-            borderRadius: "16px",
-            duration: 0.22,
-            ease: "power2.out",
-            overwrite: "auto",
-          });
-        };
-
-        const resetCorners = () => {
-          gsap.to(radiusTargets, {
-            borderRadius: (i: number) => originalRadii[i],
-            duration: 0.22,
-            ease: "power2.out",
-            overwrite: "auto",
-          });
-        };
-
-        ScrollTrigger.create({
-          trigger: sticky,
-          start: "top top",
-          end: "+=1300",
-          scrub: 0.35,
-          pin: sticky,
-          pinSpacing: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-
-            if (progress >= 0.08 && progress <= 0.2) {
-              const hp = gsap.utils.mapRange(0.08, 0.2, 0, 1, progress);
-              gsap.set(header, {
-                y: gsap.utils.mapRange(0, 1, 40, 0, hp),
-                opacity: hp,
-              });
-            } else if (progress < 0.08) {
-              gsap.set(header, { y: 40, opacity: 0 });
-            } else {
-              gsap.set(header, { y: 0, opacity: 1 });
-            }
-
-            if (progress <= 0.2) {
-              const width = gsap.utils.mapRange(0, 0.2, 72, 86, progress);
-              gsap.set(cardContainer, { width: `${width}%` });
-            } else {
-              gsap.set(cardContainer, { width: "86%" });
-            }
-
-            if (progress >= 0.28 && !isGapDone) {
-              gsap.to(cardContainer, {
-                gap: "16px",
-                duration: 0.22,
-                ease: "power2.out",
-                overwrite: "auto",
-              });
-              roundCorners();
-              isGapDone = true;
-            } else if (progress < 0.28 && isGapDone) {
-              gsap.to(cardContainer, {
-                gap: "0px",
-                duration: 0.22,
-                ease: "power2.out",
-                overwrite: "auto",
-              });
-              resetCorners();
-              isGapDone = false;
-            }
-
-            if (progress >= 0.48 && !isFlipDone) {
-              gsap.to(cards, {
-                rotationY: 180,
-                duration: 0.4,
-                ease: "power3.inOut",
-                stagger: 0.05,
-              });
-
-              const first = cards[0];
-              const last = cards[cards.length - 1];
-              if (first) gsap.to(first, { y: 28, rotateZ: -12, duration: 0.4 });
-              if (last) gsap.to(last, { y: 28, rotateZ: 12, duration: 0.4 });
-
-              isFlipDone = true;
-            } else if (progress < 0.48 && isFlipDone) {
-              gsap.to(cards, {
-                rotationY: 0,
-                duration: 0.4,
-                ease: "power3.inOut",
-                stagger: -0.05,
-              });
-
-              const first = cards[0];
-              const last = cards[cards.length - 1];
-              if (first) gsap.to(first, { y: 0, rotateZ: 0, duration: 0.4 });
-              if (last) gsap.to(last, { y: 0, rotateZ: 0, duration: 0.4 });
-
-              isFlipDone = false;
-            }
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: sticky,
+            start: "top top",
+            end: "+=1100",
+            scrub: 0.4,
+            pin: sticky,
+            pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            fastScrollEnd: true,
+            preventOverlaps: true,
           },
         });
+
+        tl.to(
+          cardContainer,
+          {
+            width: "86%",
+            gap: "32px",
+            duration: 0.4,
+          },
+          0,
+        ).to(
+          cards,
+          {
+            rotationY: 180,
+            duration: 0.45,
+            stagger: 0.04,
+          },
+          0.42,
+        );
+
+        if (first) {
+          tl.to(
+            first,
+            {
+              y: 28,
+              rotateZ: -12,
+              duration: 0.45,
+            },
+            0.42,
+          );
+        }
+
+        if (last) {
+          tl.to(
+            last,
+            {
+              y: 28,
+              rotateZ: 12,
+              duration: 0.45,
+            },
+            0.42,
+          );
+        }
+
+        return () => {
+          tl.scrollTrigger?.kill();
+          tl.kill();
+        };
       });
     }, root);
 
-    const onLoad = () => {
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    };
-    window.addEventListener("load", onLoad);
+    const refresh = () => ScrollTrigger.refresh();
+    const raf = requestAnimationFrame(refresh);
+    window.addEventListener("load", refresh);
 
     return () => {
-      window.removeEventListener("load", onLoad);
+      cancelAnimationFrame(raf);
+      window.removeEventListener("load", refresh);
       ctx.revert();
     };
   }, [dict.slides]);
@@ -192,10 +145,7 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
           <p className="body-text text-[14px] font-medium tracking-[0.2em] text-neutral-500 uppercase md:text-[16px]">
             {dict.eyebrow}
           </p>
-          <h2
-            ref={headerRef}
-            className="main-text mt-2 text-center text-[22px] leading-snug font-normal text-neutral-900 md:text-[30px]"
-          >
+          <h2 className="main-text mt-2 text-center text-[22px] leading-snug font-normal text-neutral-900 md:text-[30px]">
             {dict.title}
           </h2>
         </div>
@@ -208,7 +158,6 @@ export default function Portfoglio({ locale, dict }: PortfoglioProps) {
               className={`pf-card pf-card-${index + 1}`}
             >
               <div className="pf-card-front">
-                {/* Different object-position helps when placeholders share one file */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={slide.image}

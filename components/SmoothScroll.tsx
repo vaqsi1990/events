@@ -14,12 +14,20 @@ function LenisScrollTriggerSync() {
   useEffect(() => {
     if (!lenis) return;
 
-    const onScroll = () => ScrollTrigger.update();
-    lenis.on("scroll", onScroll);
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const ticker = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(ticker);
+    gsap.ticker.lagSmoothing(0);
     ScrollTrigger.refresh();
 
     return () => {
-      lenis.off("scroll", onScroll);
+      lenis.off("scroll", ScrollTrigger.update);
+      gsap.ticker.remove(ticker);
+      gsap.ticker.lagSmoothing(500, 33);
     };
   }, [lenis]);
 
@@ -35,7 +43,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     <ReactLenis
       root
       options={{
-        autoRaf: true,
+        autoRaf: false,
         lerp: 0.08,
         duration: 1.15,
         smoothWheel: true,

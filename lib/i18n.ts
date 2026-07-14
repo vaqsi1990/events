@@ -283,7 +283,7 @@ const dictionaries = {
     },
     portfolio: {
       eyebrow: "პორტფოლიო",
-      title: "შერჩეული პროექტები, რომლებიც შთაგაგონებთ.",
+      title: "პროექტები, რომლებიც შთაგაგონებთ",
       viewAll: "ყველას ნახვა",
       clickHint: "გაასქროლე ან გადაფურცლე სლაიდების შესაცვლელად",
       pageTitle: "პორტფოლიო",
@@ -292,7 +292,7 @@ const dictionaries = {
         {
           title: "კერძო ზეიმი",
           description:
-            "ინტიმური ატმოსფერო, გააზრებული დეტალები და მომენტები, რომლებიც სამუდამოდ რჩება.",
+            "მყუდრო ატმოსფერო, გააზრებული დეტალები და მომენტები, რომლებიც სამუდამოდ რჩება.",
           image: "/hero.jpg",
           imageAlt: "კერძო ღონისძიება",
         },
@@ -596,7 +596,7 @@ const dictionaries = {
     },
     portfolio: {
       eyebrow: "Portfolio",
-      title: "Selected projects that inspire.",
+      title: "Projects that inspire",
       viewAll: "View all",
       clickHint: "Scroll or swipe to change slides",
       pageTitle: "Portfolio",
@@ -605,7 +605,7 @@ const dictionaries = {
         {
           title: "Private celebration",
           description:
-            "An intimate atmosphere, thoughtful details, and moments that stay forever.",
+            "A serene atmosphere, thoughtful details, and moments that stay forever.",
           image: "/hero.jpg",
           imageAlt: "Private event",
         },

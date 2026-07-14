@@ -244,21 +244,19 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2.5rem;
   min-height: 100svh;
-  padding: 5rem 1.25rem 3rem;
-  overflow: hidden;
+  padding: 3rem 1.25rem;
+  overflow: clip;
   box-sizing: border-box;
 }
 
 .pf-sticky-header {
-  position: absolute;
-  top: 14%;
-  left: 50%;
+  position: relative;
   z-index: 2;
   width: min(100%, 720px);
   padding-inline: 1rem;
   text-align: center;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -267,7 +265,7 @@ body {
   z-index: 1;
   display: flex;
   width: 86%;
-  gap: 0;
+  gap: 1.25rem;
   perspective: 1200px;
   transform-style: preserve-3d;
 }
@@ -276,22 +274,10 @@ body {
   position: relative;
   flex: 1;
   aspect-ratio: 3 / 4;
+  border-radius: 16px;
   transform-style: preserve-3d;
   transform-origin: center top;
   will-change: transform;
-}
-
-.pf-card-1 {
-  border-radius: 16px 0 0 16px;
-}
-
-.pf-card-2,
-.pf-card-3 {
-  border-radius: 0;
-}
-
-.pf-card-4 {
-  border-radius: 0 16px 16px 0;
 }
 
 .pf-card-front,
@@ -302,6 +288,15 @@ body {
   border-radius: inherit;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.pf-card-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .pf-card-front img {
@@ -348,37 +343,27 @@ body {
 }
 
 .pf-cta {
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
+  position: relative;
   z-index: 2;
-  transform: translateX(-50%);
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 999px) {
   .pf-sticky {
     min-height: auto;
-    padding: 4rem 1.25rem 3.5rem;
-    gap: 2rem;
+    padding: 3rem 1.25rem;
+    gap: 2.5rem;
   }
 
   .pf-sticky-header {
-    position: static;
     width: 100%;
-    transform: none;
-    pointer-events: auto;
-  }
-
-  .pf-sticky-header h2 {
-    opacity: 1 !important;
-    transform: none !important;
   }
 
   .pf-card-container {
     width: 100%;
     max-width: 420px;
     flex-direction: column;
-    gap: 1.25rem !important;
+    gap: 1.75rem !important;
     perspective: none;
     transform: none !important;
   }
@@ -426,8 +411,6 @@ body {
   }
 
   .pf-cta {
-    position: static;
-    transform: none;
     margin-top: 0.5rem;
   }
 }
