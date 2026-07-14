@@ -63,14 +63,14 @@ const dictionaries = {
     },
     services: {
       eyebrow: "ღონისძიებები",
-      title: "ნება მოგვეცით, გაგაოცოთ და შთაგაგონოთ.",
+      title: "ნება მოგვეცით, გაგაოცოთ და შთაგაგონოთ",
       cta: "ღონისძიებები",
       explore: "გაიცანით",
       items: [
         {
           id: "private",
           label: "კერძო ღონისძიებები",
-          heading: "პირადი მომენტები, რომლებიც სამუდამოდ რჩება.",
+          heading: "პირადი მომენტები, რომლებიც სამუდამოდ რჩება",
           image: "/private.jpg",
           imageAlt: "კერძო ღონისძიება",
           gallery: [
@@ -97,7 +97,7 @@ const dictionaries = {
         {
           id: "corporate",
           label: "კორპორატიული ღონისძიებები",
-          heading: "ბიზნესი, რომელიც შთაბეჭდილებას ტოვებს.",
+          heading: "ბიზნესი, რომელიც შთაბეჭდილებას ტოვებს",
           image: "/corporate.jpg",
           imageAlt: "კორპორატიული ღონისძიება",
           gallery: [
@@ -136,7 +136,7 @@ const dictionaries = {
         {
           id: "entertainment",
           label: "გასართობი ღონისძიებები",
-          heading: "ატმოსფერო, რომელიც ყველას აერთიანებს.",
+          heading: "ატმოსფერო, რომელიც ყველას აერთიანებს",
           image: "/entertainment.jpg",
           imageAlt: "გასართობი ღონისძიება",
           gallery: [
@@ -169,7 +169,7 @@ const dictionaries = {
         {
           id: "brand",
           label: "ბრენდული ღონისძიებები",
-          heading: "ბრენდი, რომელიც ცოცხლდება სივრცეში.",
+            heading: "ბრენდი, რომელიც ცოცხლდება სივრცეში",
           image: "/branded.jpg",
           imageAlt: "ბრენდული ღონისძიება",
           gallery: [
@@ -370,14 +370,14 @@ const dictionaries = {
     },
     services: {
       eyebrow: "Events",
-      title: "Let us dazzle and inspire you.",
+      title: "Let us dazzle and inspire you",
       cta: "Events",
       explore: "Explore",
       items: [
         {
           id: "private",
           label: "Private Events",
-          heading: "Personal moments that stay forever.",
+          heading: "Personal moments that stay forever",
           image: "/private.jpg",
           imageAlt: "Private event",
           gallery: [
@@ -404,7 +404,7 @@ const dictionaries = {
         {
           id: "corporate",
           label: "Corporate Events",
-          heading: "Business that leaves an impression.",
+          heading: "Business that leaves an impression",
           image: "/corporate.jpg",
           imageAlt: "Corporate event",
           gallery: [
@@ -443,7 +443,7 @@ const dictionaries = {
         {
           id: "entertainment",
           label: "Entertainment Events",
-          heading: "An atmosphere that brings everyone together.",
+          heading: "An atmosphere that brings everyone together",
           image: "/entertainment.jpg",
           imageAlt: "Entertainment event",
           gallery: [
@@ -476,7 +476,7 @@ const dictionaries = {
         {
           id: "brand",
           label: "Brand Events",
-          heading: "A brand that comes alive in space.",
+          heading: "A brand that comes alive in space",
           image: "/branded.jpg",
           imageAlt: "Brand event",
           gallery: [

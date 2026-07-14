@@ -77,12 +77,7 @@ export default function Rounds({ dict }: RoundsProps) {
                     {number}
                   </span>
 
-                  <div className="relative flex items-center gap-3">
-                    <span className="body-text text-[13px] font-medium tracking-[0.2em] text-[#A08968] uppercase">
-                      {number}
-                    </span>
-                   
-                  </div>
+                
 
                   <h3 className="body-text relative mt-5 text-[17px] font-semibold tracking-[0.02em] text-neutral-900 md:text-[18px]">
                     {step.title}
