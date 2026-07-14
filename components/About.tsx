@@ -41,7 +41,24 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
       whileInView="show"
       viewport={{ once: true, amount: 0.12 }}
     >
-      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-2 md:gap-14 md:px-8 lg:gap-20">
+      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] md:gap-14 md:px-8 lg:gap-20">
+        <motion.div
+          className="relative aspect-[3/2] w-full overflow-hidden rounded-xl bg-neutral-200"
+          variants={riseVariants}
+        >
+          <Image
+            src="/campaign.jpg"
+            alt={dict.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 55vw"
+            className="object-cover object-center"
+          />
+          <div
+            className="absolute inset-0 bg-black/40"
+            aria-hidden="true"
+          />
+        </motion.div>
+
         <div>
           <motion.h2
             className="main-text text-[22px] leading-tight font-normal tracking-[0.04em] text-neutral-900 uppercase  md:text-[30px] md:leading-[1.2]"
@@ -81,23 +98,6 @@ export default function About({ locale, dict, showCta = true }: AboutProps) {
             </motion.div>
           )}
         </div>
-
-        <motion.div
-          className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-neutral-200 sm:aspect-[5/6] md:aspect-[4/5]"
-          variants={riseVariants}
-        >
-          <Image
-            src={dict.image}
-            alt={dict.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div
-            className="absolute inset-0 bg-black/40"
-            aria-hidden="true"
-          />
-        </motion.div>
       </div>
     </motion.section>
   );

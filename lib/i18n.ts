@@ -263,20 +263,8 @@ const dictionaries = {
       imageAlt: "ღონისძიების ატმოსფერო",
       paragraphs: [
         [
-          { text: "ყველა წარმატებული ღონისძიება ხედვით იწყება. " },
-          { text: "Event", highlight: true },
           {
-            text: "-ში იდეებს დაუვიწყარ გამოცდილებად ვაქცევთ — გააზრებული დაგეგმვით, კრეატიული მიმართულებით და უმწიკვლო შესრულებით. იქნება ეს კორპორატიული შეკრება, ",
-          },
-          { text: "კერძო ზეიმი", highlight: true },
-          {
-            text: ", კონფერენცია, გალა თუ პროდუქტის პრეზენტაცია — ყოველი დეტალი გულდასმით არის გააზრებული.",
-          },
-        ],
-        [
-          { text: "ჩვენი მიდგომა", highlight: true },
-          {
-            text: " თანამშრომლობაზეა აგებული. ვუთმობთ დროს, რომ გავიგოთ თქვენი მიზნები, აუდიტორია და ის ატმოსფერო, რომლის შექმნაც გსურთ. ასე ვქმნით ღონისძიებებს, რომლებიც ავთენტური, მიზანმიმართული და უნიკალურად თქვენია.",
+            text: "ჩვენთვის თითოეული ღონისძიება უნიკალური ისტორიაა. იდეიდან განხორციელებამდე ვქმნით გამოცდილებას, რომელიც აერთიანებს კრეატიულობას, ხარისხს და პროფესიონალურ შესრულებას.",
           },
         ],
       ],
@@ -579,20 +567,8 @@ const dictionaries = {
       imageAlt: "Event atmosphere",
       paragraphs: [
         [
-          { text: "Every successful event begins with a vision. At " },
-          { text: "Event", highlight: true },
           {
-            text: ", we transform ideas into memorable experiences through thoughtful planning, creative direction, and flawless execution. Whether it's a corporate gathering, ",
-          },
-          { text: "private celebration", highlight: true },
-          {
-            text: ", conference, gala, or product launch, every detail is carefully considered.",
-          },
-        ],
-        [
-          { text: "Our approach", highlight: true },
-          {
-            text: " is built on collaboration. We take the time to understand your goals, your audience, and the atmosphere you want to create. This allows us to design events that feel authentic, purposeful, and uniquely yours.",
+            text: "For us, every event is a unique story. From concept to realization, we create an experience that brings together creativity, quality, and professional execution.",
           },
         ],
       ],
